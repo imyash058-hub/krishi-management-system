@@ -1,4 +1,4 @@
-# Tasty Bite: Java Desktop Restaurant Application
+# Tasty Bite: Precision Agriculture Platform
 
 ## week 1
 
