@@ -76,7 +76,7 @@ The system utilizes a dual-environment database strategy, routing data persisten
 * **Fault Tolerance:** If the primary government AGMARKNET API fails, the platform seamlessly fails over to the verified Smart Krishi database repository without interrupting the user[cite: 19].
 * **Safety & Agronomic Integrity:** The fertilizer advisor enforces strict upper thresholds to prevent soil toxicity, and the system strictly prohibits randomized or fake weather/mandi telemetry[cite: 19].
 
-* ## week 4
+## week 3
 
 ### UML & System Architecture
 
@@ -112,31 +112,3 @@ erDiagram
         varchar recommended_crop
         varchar suitable_season
     }
-   graph TD
-    subgraph Client/Presentation Tier
-        UI[Web Browsers - HTML5, CSS3, ES6+, Bootstrap 5.3]
-    end
-
-    subgraph Application/Service Tier - Spring Boot 3.3.4
-        Auth[Farmer & Profile Svc]
-        Crop[Crop Recommend Svc]
-        Weather[Weather Svc]
-        Mandi[Mandi & Geodesic Svc]
-    end
-
-    subgraph Persistence Tier
-        DB[(MySQL 8.0+ / H2 In-Memory)]
-    end
-
-    subgraph External Web Services
-        OM[Open-Meteo APIs]
-        Gov[data.gov.in AGMARKNET API]
-    end
-
-    UI -->|HTTPS / REST JSON| Auth
-    UI -->|HTTPS / REST JSON| Crop
-    UI -->|HTTPS / REST JSON| Weather
-    Auth -->|JDBC / JPA| DB
-    Crop -->|JDBC / JPA| DB
-    Weather -->|HTTP Requests| OM
-    Mandi -->|HTTP Requests| Gov
