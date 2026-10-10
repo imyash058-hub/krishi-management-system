@@ -184,3 +184,90 @@ flowchart TD
     class WeatherAPI,Agmarknet cloud;
     class Database db;
 ```
+## Week 4: Database Design & UI Mock-ups
+
+## 1. Database Architecture & Persistence Strategy
+
+Smart Krishi utilizes an enterprise persistence architecture that routes data to **Cloud MySQL 8.0+** for strict ACID compliance, relational integrity, and historical market tracking, supported by an in-memory **H2 Engine** for local development[cite: 70, 73].
+
+### A. MySQL Relational Database Schema (Core & Agronomic Data)
+
+* **`users`** Table: System authentication accounts and credentials[cite: 77].
+
+  * `id` ( `BIGINT` , `PRIMARY KEY` , `AUTO_INCREMENT` )
+  * `username` ( `VARCHAR(50)` , `UNIQUE` , `NOT NULL` )
+  * `password` ( `VARCHAR(255)` , `NOT NULL` , `BCrypt Hash` )
+  * `full_name` ( `VARCHAR(100)` , `NOT NULL` )
+  * `role` ( `VARCHAR(20)` , `NOT NULL` ) — `FARMER`, `ADMIN`
+  * `created_at` ( `TIMESTAMP` , `DEFAULT CURRENT_TIMESTAMP` )
+
+* **`farmer_profiles`** Table: Farmer demographic information and regional binding[cite: 77].
+
+  * `id` ( `BIGINT` , `PRIMARY KEY` , `AUTO_INCREMENT` )
+  * `user_id` ( `BIGINT` , `FOREIGN KEY -> users.id` , `UNIQUE` , `ON DELETE CASCADE` )
+  * `mobile_number` ( `VARCHAR(15)` , `NOT NULL` )
+  * `state` ( `VARCHAR(50)` , `NOT NULL` )
+  * `district` ( `VARCHAR(50)` , `NOT NULL` )
+  * `village` ( `VARCHAR(100)` )
+  * `total_land_area` ( `DOUBLE` , `DEFAULT 0.0` )
+
+* **`farms`** Table: Granular agricultural land parcels belonging to a farmer[cite: 77].
+
+  * `id` ( `BIGINT` , `PRIMARY KEY` , `AUTO_INCREMENT` )
+  * `farmer_id` ( `BIGINT` , `FOREIGN KEY -> farmer_profiles.id` , `ON DELETE CASCADE` )
+  * `plot_name` ( `VARCHAR(50)` , `NOT NULL` )
+  * `area_acres` ( `DOUBLE` , `NOT NULL` )
+  * `soil_type` ( `VARCHAR(50)` , `NOT NULL` ) — Alluvial, Black, Red, Clay, Sandy, Laterite
+  * `irrigation_source` ( `VARCHAR(50)` ) — Tube Well, Canal, Rainfed, Drip Irrigation
+  * `latitude` ( `DOUBLE` )
+  * `longitude` ( `DOUBLE` )
+
+* **`crop_recommendations`** Table: Historical agronomic recommendation records[cite: 78].
+
+  * `id` ( `BIGINT` , `PRIMARY KEY` , `AUTO_INCREMENT` )
+  * `farmer_id` ( `BIGINT` , `FOREIGN KEY -> farmer_profiles.id` , `ON DELETE SET NULL` )
+  * `recommended_crop` ( `VARCHAR(50)` , `NOT NULL` )
+  * `nitrogen` ( `DOUBLE` ), `phosphorus` ( `DOUBLE` ), `potassium` ( `DOUBLE` )
+  * `ph` ( `DOUBLE` ), `temperature` ( `DOUBLE` ), `humidity` ( `DOUBLE` ), `rainfall` ( `DOUBLE` )
+  * `confidence_score` ( `DOUBLE` )
+  * `created_at` ( `TIMESTAMP` , `DEFAULT CURRENT_TIMESTAMP` )
+
+* **`market_prices`** Table: APMC market commodity rates repository[cite: 78].
+
+  * `id` ( `BIGINT` , `PRIMARY KEY` , `AUTO_INCREMENT` )
+  * `commodity` ( `VARCHAR(50)` , `NOT NULL` )
+  * `state` ( `VARCHAR(50)` , `NOT NULL` )
+  * `district` ( `VARCHAR(50)` , `NOT NULL` )
+  * `market_center` ( `VARCHAR(100)` , `NOT NULL` )
+  * `min_price` ( `DOUBLE` , `NOT NULL` ), `max_price` ( `DOUBLE` , `NOT NULL` ), `modal_price` ( `DOUBLE` , `NOT NULL` )
+  * `price_date` ( `DATE` , `NOT NULL` )
+
+* **`advisories`** Table: Government schemes and seasonal crop alerts[cite: 78].
+
+  * `id` ( `BIGINT` , `PRIMARY KEY` , `AUTO_INCREMENT` )
+  * `title` ( `VARCHAR(150)` , `NOT NULL` )
+  * `category` ( `VARCHAR(50)` , `NOT NULL` ) — `SCHEME`, `PEST_ALERT`, `WEATHER_ALERT`
+  * `content` ( `TEXT` , `NOT NULL` )
+  * `applicable_state` ( `VARCHAR(50)` )
+  * `created_at` ( `TIMESTAMP` , `DEFAULT CURRENT_TIMESTAMP` )
+
+### B. Entity-Relationship (ER) Diagram
+
+* [Smart Krishi ER Diagram]
+![Smart Krishi ER Diagram](image/er_diagram.png)
+
+---
+
+## 2. User Interface (UI) Mock-ups
+
+### A. Farmer Dashboard Core (Land Management & Telemetry)
+Features an interactive central farmer workspace, multi-plot land registry supporting acreages and soil classifications, and weather alerts[cite: 82].
+
+* [Smart Krishi Farmer Dashboard]
+![Farmer Dashboard](image/dashboard_ui.png)
+
+### B. Precision Crop Recommendation Engine
+Features an 8-parameter crop recommendation interface and an interactive phenological crop growth timeline[cite: 82].
+
+* [Smart Krishi Crop Engine]
+![Crop Recommendation Engine](image/recommendation_ui.png)
