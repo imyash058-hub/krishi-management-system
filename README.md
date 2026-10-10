@@ -332,4 +332,32 @@ L-- Frontend/                         # Client Web Application (HTML5, Bootstrap
         |-- dashboard.js, crop-recommendation.js, weather.js
         |-- fertilizer.js, profit-calculator.js, crop-calendar.js
         L-- market-prices.js, price-prediction.js, advisory.js, admin.js
-1. Member 1: Farmer & Land Management / Authentication CoreRole & Scope of WorkMember 1 owned the entry point of the application, responsible for secure authentication and the central farmer workspace.   Frontend (User Interface & State): Developed responsive authentication screens (login.html, register.html), the central farmer workspace (dashboard.html), profile management (profile.html), and navigation components.   Backend (API Logic): Implemented stateless Spring Security 6 authentication filters, JWT utility tokens (JwtUtil.java), user credential authentication, and farmer profile/land parcel REST controllers.   Database & Schema: Designed relational schemas for users, farmer_profiles, and farms, enforcing foreign key constraints and cascade rules.   Problems & Challenges FacedHardcoded Secret Vulnerability: The JWT configuration originally included hardcoded fallback strings. Solved by decoupling secrets into externalized environment variables (${JWT_SECRET}) and rejecting fallback defaults in source code.   Token Lifecycle in Client LocalStorage: Stale or expired tokens triggered silent frontend fetch failures. Solved by adding an HTTP 401 interceptor in frontend/js/api.js that automatically purges invalid credentials and redirects to login.   Multi-Plot Land Parcel Cascading Deletions: Deleting a farmer profile risked leaving orphaned land records. Solved by applying JPA @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true).   What They CompletedSecure, stateless JWT authentication with BCrypt password hashing.   Multi-plot land registry supporting acreages, soil classifications, and irrigation types.   Interactive farmer dashboard displaying weather alerts, land holdings, and quick links.   
+## Week 6
+
+### 1. Member 1: Farmer & Land Management / Authentication Core
+
+**Role & Scope of Work**
+
+Member 1 owned the entry point of the application, responsible for secure authentication and the central farmer workspace[cite: 81].
+
+* **Frontend (User Interface & State):** Developed responsive authentication screens (`login.html`, `register.html`), the central farmer workspace (`dashboard.html`), profile management (`profile.html`), and navigation components[cite: 81].
+
+* **Backend (API Logic):** Implemented stateless Spring Security 6 authentication filters, JWT utility tokens (`JwtUtil.java`), user credential authentication, and farmer profile/land parcel REST controllers[cite: 81].
+
+* **Database & Schema:** Designed relational schemas for users, `farmer_profiles`, and farms, enforcing foreign key constraints and cascade rules[cite: 81].
+
+**Problems & Challenges Faced**
+
+1. **Hardcoded Secret Vulnerability:** The JWT configuration originally included hardcoded fallback strings. Solved by decoupling secrets into externalized environment variables (`${JWT_SECRET}`) and rejecting fallback defaults in source code[cite: 81].
+
+2. **Token Lifecycle in Client LocalStorage:** Stale or expired tokens triggered silent frontend fetch failures. Solved by adding an HTTP 401 interceptor in `frontend/js/api.js` that automatically purges invalid credentials and redirects to login[cite: 82].
+
+3. **Multi-Plot Land Parcel Cascading Deletions:** Deleting a farmer profile risked leaving orphaned land records. Solved by applying JPA `@OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)`[cite: 82].
+
+**What They Completed**
+
+* Secure, stateless JWT authentication with BCrypt password hashing[cite: 82].
+
+* Multi-plot land registry supporting acreages, soil classifications, and irrigation types[cite: 82].
+
+* Interactive farmer dashboard displaying weather alerts, land holdings, and quick links[cite: 82].
