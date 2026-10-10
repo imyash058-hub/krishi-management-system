@@ -332,29 +332,29 @@ L-- Frontend/                         # Client Web Application (HTML5, Bootstrap
         |-- dashboard.js, crop-recommendation.js, weather.js
         |-- fertilizer.js, profit-calculator.js, crop-calendar.js
         L-- market-prices.js, price-prediction.js, advisory.js, admin.js
-## Week 6
+### 1. Member 1: Authentication, Dashboard & Navigation Integration Lead
 
-### 1. Member 1: Farmer & Land Management / Authentication Core
+**Integration & Testing Role**
 
-**Role & Scope of Work**
+Authentication Flow, Dashboard Synchronization, and End-to-End Navigation Testing Lead[cite: 84].
 
-Member 1 owned the entry point of the application, responsible for secure authentication and the central farmer workspace[cite: 81].
+**Work & Scope**
 
-* **Frontend (User Interface & State):** Developed responsive authentication screens (`login.html`, `register.html`), the central farmer workspace (`dashboard.html`), profile management (`profile.html`), and navigation components[cite: 81].
+* **Cross-Module Dashboard Integration:** Integrated the central Farmer Dashboard with Member 3's weather alerts, Member 2's crop advice, and Member 5's nearby mandi locations into a single unified view[cite: 84].
+* **E2E Navigation Testing:** Verified the end-to-end flow where a farmer registers land, receives crop advice, fetches live weather, calculates ROI, and finds the nearest mandi[cite: 84].
+* **Automated Test Suite Verification:** Executed and validated the Spring Boot integration test suite, ensuring all 30 automated tests passed with zero failures and zero errors across all integrated contexts[cite: 84].
 
-* **Backend (API Logic):** Implemented stateless Spring Security 6 authentication filters, JWT utility tokens (`JwtUtil.java`), user credential authentication, and farmer profile/land parcel REST controllers[cite: 81].
+**Problems Faced During Integration**
 
-* **Database & Schema:** Designed relational schemas for users, `farmer_profiles`, and farms, enforcing foreign key constraints and cascade rules[cite: 81].
-
-**Problems & Challenges Faced**
-
-1. **Hardcoded Secret Vulnerability:** The JWT configuration originally included hardcoded fallback strings. Solved by decoupling secrets into externalized environment variables (`${JWT_SECRET}`) and rejecting fallback defaults in source code[cite: 81].
-
-2. **Token Lifecycle in Client LocalStorage:** Stale or expired tokens triggered silent frontend fetch failures. Solved by adding an HTTP 401 interceptor in `frontend/js/api.js` that automatically purges invalid credentials and redirects to login[cite: 82].
-
-3. **Multi-Plot Land Parcel Cascading Deletions:** Deleting a farmer profile risked leaving orphaned land records. Solved by applying JPA `@OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)`[cite: 82].
+1. **Coordinate Normalization Discrepancies:** The Weather module used 4-decimal precision (26.9124,75.7873), while the Mandi module used floating-point values, causing cache misses when sharing coordinates. Solved by standardizing `normalizeCoordsKey()` across services[cite: 84].
+2. **Stale Cache vs Live Updates:** After updating landholdings or baseline market prices, cached responses occasionally served outdated values. Solved by integrating automated cache eviction hooks upon database writes[cite: 84].
+3. **Asynchronous UI Race Conditions:** Concurrent API calls on page load (weather, mandi rates, and farmer profile) caused intermittent rendering flickers. Solved by refactoring client scripts with `Promise.allSettled()` and standard skeleton loaders[cite: 84].
 
 **What They Completed**
+
+* Seamlessly integrated Farmer Dashboard capable of resolving concurrent API requests without rendering flickers[cite: 84].
+* Standardized geospatial coordinate keys across Weather and Mandi services to prevent cross-module cache misses[cite: 84].
+* Verified a 100% passing automated test suite (30/30) proving system stability across all integrated modules[cite: 84].
 
 * Secure, stateless JWT authentication with BCrypt password hashing[cite: 82].
 
