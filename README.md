@@ -75,7 +75,6 @@ The system utilizes a dual-environment database strategy, routing data persisten
 * **Security:** All secure endpoints require valid Bearer tokens, passwords are salted and hashed using BCrypt, and all database queries execute via parameterized statements to eliminate SQL Injection[cite: 19].
 * **Fault Tolerance:** If the primary government AGMARKNET API fails, the platform seamlessly fails over to the verified Smart Krishi database repository without interrupting the user[cite: 19].
 * **Safety & Agronomic Integrity:** The fertilizer advisor enforces strict upper thresholds to prevent soil toxicity, and the system strictly prohibits randomized or fake weather/mandi telemetry[cite: 19].
-
 ## Week 3
 
 ### UML & Architectural Design
@@ -149,9 +148,11 @@ classDiagram
     Farm --> ProfitCalculatorService : economics
     CropRecommendationService --> CropCalendarService : phenology
     MandiService --> PricePredictionService : trends
-[Smart Krishi System Architecture]
+```
 
-Code snippet
+* **[Smart Krishi System Architecture]**
+
+```mermaid
 flowchart TD
     %% Client Tier
     Client[Client Browser <br/> Bootstrap 5 / Responsive UI] -->|HTTPS Requests| Frontend[Frontend Hosting Netlify <br/> Static Pages HTML5/ES6/CSS3]
