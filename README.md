@@ -271,3 +271,66 @@ Features an 8-parameter crop recommendation interface and an interactive phenolo
 
 * [Smart Krishi Crop Engine]
 ![Crop Recommendation Engine](image/recommendation_ui.png)
+
+## Week 5
+
+* Here is the complete project directory structure for **Smart Krishi**[cite: 80, 81]:
+
+```text
+Smart_Krishi/
+|
+|-- README.md                         # Comprehensive 10-Week Documentation & Technical Log
+|-- SRS.md                            # Software Requirements Specification (IEEE 830)
+|
+|-- backend/                          # Spring Boot 3.3.4 Backend Application
+|   |-- pom.xml                       # Maven Dependencies (Security, JPA, Cache, Caffeine)
+|   |-- Dockerfile                    # Multi-stage production container build
+|   |-- .env.example                  # Backend environment configuration template
+|   L-- src/
+|       |-- main/
+|       |   |-- java/com/smartkrishi/
+|       |   |   |-- SmartKrishiApplication.java
+|       |   |   |
+|       |   |   |-- config/           # Infrastructure & Security Configurations (SecurityConfig, JwtUtil)
+|       |   |   |-- controller/       # REST Controllers (AuthController, WeatherController, etc.)
+|       |   |   |-- dto/              # Strongly-Typed Data Transfer Objects (AuthRequest, WeatherResponse)
+|       |   |   |-- entity/           # JPA Hibernate Relational Entities (User, Farm, MarketPrice)
+|       |   |   |-- repository/       # Spring Data JPA Repositories (UserRepository, FarmRepository)
+|       |   |   |-- service/          # Agronomic & Algorithmic Services (WeatherService, FertilizerService)
+|       |   |   L-- exception/        # Centralized Exception Handlers (GlobalExceptionHandler.java)
+|       |   |
+|       |   L-- resources/
+|       |       |-- application.properties # Server Port, JPA, Cache & JWT Config
+|       |       L-- schema.sql             # Reproducible DDL & Default Seeds
+|       |
+|       L-- test/java/com/smartkrishi/     # Automated Unit & Integration Tests
+|           |-- SmartKrishiApplicationTests.java # 16 Full-Context Integration Tests
+|           L-- service/WeatherServiceTest.java  # 14 Resilient Telemetry Unit Tests
+|
+L-- Frontend/                         # Client Web Application (HTML5, Bootstrap 5, ES6)
+    |-- netlify.toml                  # Netlify CDN Routing & Security Headers
+    |-- _redirects                    # SPA Single-Page Rewrite Rules
+    |-- index.html                    # Public Home Portal
+    |-- dashboard.html                # Farmer Land Management Dashboard
+    |-- crop-recommendation.html      # 8-Parameter Crop Decision Engine
+    |-- weather.html                  # Live Meteorological & Irrigation Advisory
+    |-- fertilizer.html               # Scientific Fertilizer Balancer UI
+    |-- profit-calculator.html        # Pre-Sowing Farm Budget & ROI Calculator
+    |-- crop-calendar.html            # Phenological Crop Growth Timeline
+    |-- price-prediction.html         # Statistical APMC Price Forecaster
+    |-- market-prices.html            # Geodesic Nearby Mandi Locator
+    |-- advisory.html                 # Government Agricultural Schemes
+    |-- admin.html                    # Administrative Telemetry Dashboard
+    |-- login.html                    # Authentication Entry Points
+    |-- register.html
+    |
+    |-- css/
+    |   L-- style.css                 # Custom Agricultural Theme & Design Tokens
+    |
+    L-- js/                           # Modular Frontend Application Logic
+        |-- api.js, auth.js, config.js, ui.js
+        |-- dashboard.js, crop-recommendation.js, weather.js
+        |-- fertilizer.js, profit-calculator.js, crop-calendar.js
+        L-- market-prices.js, price-prediction.js, advisory.js, admin.js
+
+1. Member 1: Farmer & Land Management / Authentication CoreRole & Scope of WorkMember 1 owned the entry point of the application, responsible for secure authentication and the central farmer workspace.   Frontend (User Interface & State): Developed responsive authentication screens (login.html, register.html), the central farmer workspace (dashboard.html), profile management (profile.html), and navigation components.   Backend (API Logic): Implemented stateless Spring Security 6 authentication filters, JWT utility tokens (JwtUtil.java), user credential authentication, and farmer profile/land parcel REST controllers.   Database & Schema: Designed relational schemas for users, farmer_profiles, and farms, enforcing foreign key constraints and cascade rules.   Problems & Challenges FacedHardcoded Secret Vulnerability: The JWT configuration originally included hardcoded fallback strings. Solved by decoupling secrets into externalized environment variables (${JWT_SECRET}) and rejecting fallback defaults in source code.   Token Lifecycle in Client LocalStorage: Stale or expired tokens triggered silent frontend fetch failures. Solved by adding an HTTP 401 interceptor in frontend/js/api.js that automatically purges invalid credentials and redirects to login.   Multi-Plot Land Parcel Cascading Deletions: Deleting a farmer profile risked leaving orphaned land records. Solved by applying JPA @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true).   What They CompletedSecure, stateless JWT authentication with BCrypt password hashing.   Multi-plot land registry supporting acreages, soil classifications, and irrigation types.   Interactive farmer dashboard displaying weather alerts, land holdings, and quick links.   
