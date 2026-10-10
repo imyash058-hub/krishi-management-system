@@ -339,41 +339,6 @@ PDF
 Below is a detailed breakdown of the role, end-to-end responsibilities, technical challenges faced, and final accomplishments for each team member.   
 PDF
 
-Week 6
-1. Member 1: Farmer & Land Management / Authentication Core
-Role & Scope of Work
-
-Member 1 owned the entry point of the application, responsible for secure authentication and the central farmer workspace.   
-PDF
-
-Frontend (User Interface & State): Developed responsive authentication screens (login.html, register.html), the central farmer workspace (dashboard.html), profile management (profile.html), and navigation components.   
-PDF
-
-Backend (API Logic): Implemented stateless Spring Security 6 authentication filters, JWT utility tokens (JwtUtil.java), user credential authentication, and farmer profile/land parcel REST controllers.   
-PDF
-
-Database & Schema: Designed relational schemas for users, farmer_profiles, and farms, enforcing foreign key constraints and cascade rules.   
-PDF
-
-Problems & Challenges Faced
-
-Hardcoded Secret Vulnerability: The JWT configuration originally included hardcoded fallback strings. Solved by decoupling secrets into externalized environment variables (${JWT_SECRET}) and rejecting fallback defaults in source code.   
-PDF
-
-Token Lifecycle in Client LocalStorage: Stale or expired tokens triggered silent frontend fetch failures. Solved by adding an HTTP 401 interceptor in frontend/js/api.js that automatically purges invalid credentials and redirects to login.   
-PDF
-
-Multi-Plot Land Parcel Cascading Deletions: Deleting a farmer profile risked leaving orphaned land records. Solved by applying JPA @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true).   
-PDF
-
-What They Completed
-
-Secure, stateless JWT authentication with BCrypt password hashing.   
-PDF
-In a full-stack, modular architecture (such as **Smart Krishi**), dividing the platform into five end-to-end functional modules allows each team member to take complete ownership of their feature stack—covering user interface design, client-side REST API integration, controller development, database schema design, and third-party API integrations.
-
-Below is a detailed breakdown of the role, end-to-end responsibilities, technical challenges faced, and final accomplishments for each team member.
-
 ---
 
 ## Week 6
