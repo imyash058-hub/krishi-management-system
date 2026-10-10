@@ -332,6 +332,7 @@ L-- Frontend/                         # Client Web Application (HTML5, Bootstrap
         |-- dashboard.js, crop-recommendation.js, weather.js
         |-- fertilizer.js, profit-calculator.js, crop-calendar.js
         L-- market-prices.js, price-prediction.js, advisory.js, admin.js
+```
 In a full-stack, modular architecture (such as Smart Krishi), dividing the platform into five end-to-end functional modules allows each team member to take complete ownership of their feature stack—covering user interface design, client-side REST API integration, controller development, database schema design, and third-party API integrations.   
 PDF
 
