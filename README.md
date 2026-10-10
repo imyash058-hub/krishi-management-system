@@ -332,32 +332,46 @@ L-- Frontend/                         # Client Web Application (HTML5, Bootstrap
         |-- dashboard.js, crop-recommendation.js, weather.js
         |-- fertilizer.js, profit-calculator.js, crop-calendar.js
         L-- market-prices.js, price-prediction.js, advisory.js, admin.js
-### 1. Member 1: Authentication, Dashboard & Navigation Integration Lead
+In a full-stack, modular architecture (such as Smart Krishi), dividing the platform into five end-to-end functional modules allows each team member to take complete ownership of their feature stack—covering user interface design, client-side REST API integration, controller development, database schema design, and third-party API integrations.   
+PDF
 
-**Integration & Testing Role**
+Below is a detailed breakdown of the role, end-to-end responsibilities, technical challenges faced, and final accomplishments for each team member.   
+PDF
 
-Authentication Flow, Dashboard Synchronization, and End-to-End Navigation Testing Lead[cite: 84].
+Week 6
+1. Member 1: Farmer & Land Management / Authentication Core
+Role & Scope of Work
 
-**Work & Scope**
+Member 1 owned the entry point of the application, responsible for secure authentication and the central farmer workspace.   
+PDF
 
-* **Cross-Module Dashboard Integration:** Integrated the central Farmer Dashboard with Member 3's weather alerts, Member 2's crop advice, and Member 5's nearby mandi locations into a single unified view[cite: 84].
-* **E2E Navigation Testing:** Verified the end-to-end flow where a farmer registers land, receives crop advice, fetches live weather, calculates ROI, and finds the nearest mandi[cite: 84].
-* **Automated Test Suite Verification:** Executed and validated the Spring Boot integration test suite, ensuring all 30 automated tests passed with zero failures and zero errors across all integrated contexts[cite: 84].
+Frontend (User Interface & State): Developed responsive authentication screens (login.html, register.html), the central farmer workspace (dashboard.html), profile management (profile.html), and navigation components.   
+PDF
 
-**Problems Faced During Integration**
+Backend (API Logic): Implemented stateless Spring Security 6 authentication filters, JWT utility tokens (JwtUtil.java), user credential authentication, and farmer profile/land parcel REST controllers.   
+PDF
 
-1. **Coordinate Normalization Discrepancies:** The Weather module used 4-decimal precision (26.9124,75.7873), while the Mandi module used floating-point values, causing cache misses when sharing coordinates. Solved by standardizing `normalizeCoordsKey()` across services[cite: 84].
-2. **Stale Cache vs Live Updates:** After updating landholdings or baseline market prices, cached responses occasionally served outdated values. Solved by integrating automated cache eviction hooks upon database writes[cite: 84].
-3. **Asynchronous UI Race Conditions:** Concurrent API calls on page load (weather, mandi rates, and farmer profile) caused intermittent rendering flickers. Solved by refactoring client scripts with `Promise.allSettled()` and standard skeleton loaders[cite: 84].
+Database & Schema: Designed relational schemas for users, farmer_profiles, and farms, enforcing foreign key constraints and cascade rules.   
+PDF
 
-**What They Completed**
+Problems & Challenges Faced
 
-* Seamlessly integrated Farmer Dashboard capable of resolving concurrent API requests without rendering flickers[cite: 84].
-* Standardized geospatial coordinate keys across Weather and Mandi services to prevent cross-module cache misses[cite: 84].
-* Verified a 100% passing automated test suite (30/30) proving system stability across all integrated modules[cite: 84].
+Hardcoded Secret Vulnerability: The JWT configuration originally included hardcoded fallback strings. Solved by decoupling secrets into externalized environment variables (${JWT_SECRET}) and rejecting fallback defaults in source code.   
+PDF
 
-* Secure, stateless JWT authentication with BCrypt password hashing[cite: 82].
+Token Lifecycle in Client LocalStorage: Stale or expired tokens triggered silent frontend fetch failures. Solved by adding an HTTP 401 interceptor in frontend/js/api.js that automatically purges invalid credentials and redirects to login.   
+PDF
 
-* Multi-plot land registry supporting acreages, soil classifications, and irrigation types[cite: 82].
+Multi-Plot Land Parcel Cascading Deletions: Deleting a farmer profile risked leaving orphaned land records. Solved by applying JPA @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true).   
+PDF
 
-* Interactive farmer dashboard displaying weather alerts, land holdings, and quick links[cite: 82].
+What They Completed
+
+Secure, stateless JWT authentication with BCrypt password hashing.   
+PDF
+
+Multi-plot land registry supporting acreages, soil classifications, and irrigation types.   
+PDF
+
+Interactive farmer dashboard displaying weather alerts, land holdings, and quick links.   
+PDF
