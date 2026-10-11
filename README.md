@@ -6,7 +6,7 @@
 
 **Project Guide:** [Er. Ram Babu Buri (Assistant Professor, ML & Agricultural Systems)]
 
-* **Research Area:** [Insert Area]
+* **Research Area:** [Precision Agriculture and AI-Based Smart Farming]
 * **Specializations:** Java SE, Swing, JDBC, MySQL
 
 **Team Members**
