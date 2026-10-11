@@ -839,13 +839,46 @@ The final project demonstration covered the platform's architecture, algorithms,
 * Documented future improvements for accessibility, precision agriculture, and market connectivity.
 * Established a roadmap for expanding Smart Krishi beyond its current core modules.
 
----
+##  Environment Variables Reference
 
-##  Final Project Summary
+Configure the following variables according to your deployment environment.
 
-Smart Krishi combines farmer and land management, crop recommendation, live weather and irrigation advice, fertilizer planning, farm profit calculations, crop calendars, nearby mandi discovery, and market-price forecasting.
+| Variable                     | Description                                     | Scope            | Example / Default                             |
+| ---------------------------- | ----------------------------------------------- | ---------------- | --------------------------------------------- |
+| `PORT`                       | Web server listening port                       | Backend (Render) | `8080` locally; Render may assign the port    |
+| `SPRING_PROFILES_ACTIVE`     | Active Spring profile                           | Backend          | `prod` or `default` for local H2              |
+| `SPRING_DATASOURCE_URL`      | Cloud MySQL JDBC URL                            | Backend (Cloud)  | `jdbc:mysql://<host>:<port>/<db>?useSSL=true` |
+| `SPRING_DATASOURCE_USERNAME` | Database username                               | Backend (Cloud)  | `admin`                                       |
+| `SPRING_DATASOURCE_PASSWORD` | Database password                               | Backend (Cloud)  | `your_secure_password`                        |
+| `JWT_SECRET`                 | Secret key for JWT token signing                | Backend          | Use a secure secret of at least 32 characters |
+| `WEATHERAPI_KEY`             | WeatherAPI.com forecast API key                 | Backend          | `your_weatherapi_key`                         |
+| `MANDI_API_KEY`              | data.gov.in AGMARKNET API key                   | Backend          | `your_data_gov_in_api_key`                    |
+| `CORS_ALLOWED_ORIGINS`       | Comma-separated allowed frontend origins        | Backend          | `https://smart-krishi.netlify.app`            |
+| `API_BASE_URL`               | Public backend URL used by frontend `config.js` | Frontend         | `https://smart-krishi-backend.onrender.com`   |
 
-**Technology Stack:** Java 17, Spring Boot 3.3.4, Spring Security 6, JWT, Spring Data JPA, MySQL, H2, Caffeine Cache, HTML5, CSS3, JavaScript, Bootstrap 5.3, Netlify, Render, and Docker.
+**Configuration notes:**
 
-**Reported Final Status:** 30 automated tests passed, performance testing completed, security audit documented, and future scalability roadmap defined.
+* Set the actual values in Render's Environment settings and Netlify's configuration where applicable.
+* Replace example URLs with your deployed service URLs.
+* Ensure environment variable names match those referenced in your application code.
+* Never commit real passwords, API keys, database credentials, or JWT secrets to GitHub.
+* The `API_BASE_URL` variable works only if your frontend's `config.js` is configured to read it or otherwise uses the corresponding backend URL.
+
+##  Default Credentials (Development Seed)
+
+These credentials are intended for local development or seeded testing environments only.
+
+| Portal                  | Email                    | Password     |
+| ----------------------- | ------------------------ | ------------ |
+| Farmer Portal           | `ramesh@smartkrishi.com` | `Farmer@123` |
+| Admin Governance Portal | `admin@smartkrishi.com`  | `Admin@123`  |
+
+> **Security warning:** Change or disable default credentials before production use. Do not use development seed passwords on a publicly accessible deployment.
+
+##  Academic Declaration & Acknowledgements
+
+This project was developed by the Smart Krishi engineering team under the academic guidance of **Er. Ram Babu Buri**, Department of Computer Science / Information Technology.
+
+The platform leverages meteorological data from WeatherAPI.com, agricultural mandi statistics from the Ministry of Agriculture & Farmers Welfare through data.gov.in AGMARKNET, and nutrient recommendation formulas aligned with the Indian Council of Agricultural Research (ICAR).
+
 
