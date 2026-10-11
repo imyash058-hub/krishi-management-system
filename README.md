@@ -254,7 +254,80 @@ Smart Krishi utilizes an enterprise persistence architecture that routes data to
 ### B. Entity-Relationship (ER) Diagram
 
 * [Smart Krishi ER Diagram]
-![Smart Krishi ER Diagram](image/er_diagram.png)
+
+```mermaid
+erDiagram
+    USERS ||--|| FARMER_PROFILES : "owns"
+    FARMER_PROFILES ||--o{ FARMS : "registers"
+    FARMER_PROFILES ||--o{ CROP_RECOMMENDATIONS : "receives"
+    USERS ||--o{ ADVISORIES : "publishes (admin)"
+
+    USERS {
+        bigint id PK
+        string username UK
+        string password
+        string full_name
+        string role
+        timestamp created_at
+    }
+    
+    FARMER_PROFILES {
+        bigint id PK
+        bigint user_id FK,UK
+        string mobile_number
+        string state
+        string district
+        string village
+        double total_land_area
+    }
+    
+    FARMS {
+        bigint id PK
+        bigint farmer_id FK
+        string plot_name
+        double area_acres
+        string soil_type
+        string irrigation_source
+        double latitude
+        double longitude
+    }
+    
+    CROP_RECOMMENDATIONS {
+        bigint id PK
+        bigint farmer_id FK
+        string recommended_crop
+        double nitrogen
+        double phosphorus
+        double potassium
+        double ph
+        double temperature
+        double humidity
+        double rainfall
+        double confidence_score
+        timestamp created_at
+    }
+    
+    MARKET_PRICES {
+        bigint id PK
+        string commodity
+        string state
+        string district
+        string market_center
+        double min_price
+        double max_price
+        double modal_price
+        date price_date
+    }
+    
+    ADVISORIES {
+        bigint id PK
+        string title
+        string category
+        text content
+        string applicable_state
+        timestamp created_at
+    }
+    ```
 
 ---
 
