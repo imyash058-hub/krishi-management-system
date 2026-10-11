@@ -661,6 +661,7 @@ During the final Full System Acceptance Testing, all 5 team members executed uni
                  v
 [Finds Nearest Mandi (Mem 5)]
 ```
+---
 ##  Week 10: Production Performance Optimization, Security Hardening & CI/CD Automation
 
 During Week 11, the Smart Krishi platform underwent performance optimization, database indexing, concurrent-user stress testing, security auditing, and automated Continuous Integration and Continuous Deployment (CI/CD) pipeline configuration.
