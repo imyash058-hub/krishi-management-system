@@ -414,8 +414,6 @@ PDF
 
 ---
 
-## Week 6
-
 ### 1. Member 1: Farmer & Land Management / Authentication Core
 
 **Role & Scope of Work**
