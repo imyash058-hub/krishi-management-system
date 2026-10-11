@@ -661,90 +661,52 @@ During the final Full System Acceptance Testing, all 5 team members executed uni
 [Finds Nearest Mandi (Mem 5)]
 ```
 
-## Week 10: Final System Evaluation, Deployment Audit & Technical Documentation
 
-During **Week 10**, the Smart Krishi engineering team completed system stabilization, rigorous testing, and core technical documentation required for final evaluation.
+## Week 10: Final System Evaluation, Deliverables & Project Submission
+
+During **Week 10**, the Smart Krishi engineering team completed the final system evaluation, production deployment audit, comprehensive technical documentation, project presentation deck (PPT), and end-to-end video demonstration[cite: 40].
 
 ### Project Deliverables & Artifacts
 
 | Deliverable | Description | Resource Link |
 | :--- | :--- | :--- |
 | **📄 Final Project Report** | Complete Technical Architecture Document, System Requirements Specification (SRS), and Evaluation Metrics | [View Project Report (PDF)](#) \| `SRS.md` |
-| **🛡️ Deployment Audit Report** | Security hardening verification, environment variable segregation, and containerization audit | `Security_Audit.md` |
-
-### Key Accomplishments & Milestones
-
-**1. Containerization & Deployment Audit**
-- Finalized production security protocols by completely eliminating hardcoded JWT secrets in favor of externalized environment variables (`JWT_SECRET`) and enforcing BCrypt password hashing.
-- Completed cross-platform validation ensuring the Render containerized Java Web Service, Netlify Global Edge Frontend, and Cloud MySQL database launch seamlessly in production environments.
-- Enforced strict CORS restrictions at the API gateway layer and verified SSL encryption (`useSSL=true`) across all database and client-server communications.
-
-**2. Final Project Report & Technical Documentation**
-- Compiled the comprehensive **Software Requirements Specification (SRS)** and **Technical Architecture Document** covering:
-  - **Multi-Tier Client-Server Topology** orchestrated by a Java 17 Spring Boot 3 backend and a Cloud MySQL 8.0+ relational core.
-  - **Multi-Tier Resilient Caching Architecture** powered by Caffeine (10-minute fresh cache, 6-hour bounded stale fallback) to ensure high availability in rural network environments.
-  - **Stateless JWT Authentication** and strict **Role-Based Access Control (RBAC)** across `ROLE_FARMER`, `ROLE_ADMIN`, and `ROLE_GUEST` configured at the API gateway layer.
-  - **Algorithmic & Mathematical Modeling** detailing the Haversine formula for geodesic distances, statistical rolling moving average price predictions, and ICAR-aligned stoichiometric nutrient conversions.
-
-**3. Quality Assurance & Testing**
-- Finalized code coverage reports and verified 100% passing results on End-to-End (E2E) integration test suites (30/30 passing tests).
-- Validated external API fault tolerance, specifically verifying rate-limit backoff routines and circuit breaker timeouts during network degradation.
-
----
-
-## Week 11: Presentation Deck & Video Demonstration Production
-
-During **Week 11**, the focus shifted to producing multimedia assets, interactive visual materials, and executive presentation decks to demonstrate system functionality to evaluators.
-
-### Project Deliverables & Artifacts
-
-| Deliverable | Description | Resource Link |
-| :--- | :--- | :--- |
 | **📊 Presentation Deck (PPT)** | 20-Slide B.Tech Final Project Evaluation Deck covering System Design, Cloud DB, Agronomic Engines & Testing | [View Presentation (PPT / Slides)](#) |
 | **🎥 Video Demonstration** | HD Video Walkthrough of Smart Krishi Platform (Farmer Onboarding, Crop Recommender, Live Weather & Mandis) | [Watch Video Demonstration (YouTube)](#) \| [Drive Video Link](#) |
 
-### Key Accomplishments & Milestones
+### 🔗 Key Accomplishments & Week 10 Milestones
 
-**1. Final Evaluation Slide Deck (PPT)**
-- Prepared a structured 20-slide presentation deck covering:
-  - **Problem Statement & Scope:** Addressing severe socio-economic hurdles in Indian agriculture, including unscientific crop selection, erratic meteorological patterns, and volatile APMC pricing.
-  - **Architecture & Persistence Topology:** Visualizing the integration between Spring Boot REST controllers, Cloud MySQL, in-memory H2, and the HTML5/Bootstrap 5 responsive UI.
-  - **Live Telemetry & Geospatial Workflows:** Highlighting non-blocking asynchronous execution for WeatherAPI.com integration, soil evapotranspiration modeling, and data.gov.in AGMARKNET synchronization.
-  - **Agronomic & Economic Engines:** Showcasing the 8-parameter precision crop recommendation engine and comprehensive pre-sowing farm production budget ROI calculations.
-  - **Quality Assurance & Testing:** Highlighting code coverage metrics, 30/30 passing integration test suites, rate-limit backoff handling, and circuit breaker timeout performance.
+**1. Final Project Report & Technical Documentation**
 
-**2. End-to-End Product Video Demonstration**
-- Produced an HD video demonstration showcasing:
-  - **Farmer Onboarding & IAM:** Secure registration flow, profile management, and multi-plot land registry with GPS coordinates and soil classifications.
-  - **Precision Agronomic Decision Engine:** Real-time generation of optimal crop varieties based on N-P-K benchmarks, coupled with interactive phenological growth calendars mapping actionable tasks.
-  - **Meteorological & Irrigation Advisory:** Live interactive weather gauges, 5-day forecasts, and dynamic evapotranspiration-based irrigation timing.
-  - **Farm Economics & Fertilizer Balancer:** Seamless conversion of elemental nutrient deficits into commercial fertilizer bags alongside break-even price financial projections.
-  - **Geodesic Market Discovery:** Real-time rendering of nearby APMC mandis with turn-by-turn navigation and statistical price trend forecasting.
+* Compiled the comprehensive **Software Requirements Specification (SRS)** and **Technical Architecture Document** covering:
+  * **Multi-Tier Client-Server Topology** orchestrated by a Java 17 Spring Boot 3 backend and a robust Cloud MySQL 8.0+ relational core[cite: 27, 40].
+  * **Multi-Tier Resilient Caching Architecture** powered by Caffeine (10-minute fresh cache, 6-hour bounded stale fallback) to ensure high availability in rural network environments[cite: 27, 28].
+  * **Stateless JWT Authentication** and strict **Role-Based Access Control (RBAC)** across `ROLE_FARMER`, `ROLE_ADMIN`, and `ROLE_GUEST` configured at the API gateway layer[cite: 28].
+  * **Algorithmic & Mathematical Modeling** detailing the Haversine formula for geodesic distances, statistical rolling moving average price predictions, and ICAR-aligned stoichiometric nutrient conversions[cite: 27, 39].
+  * View our [Final Project Report](#).
 
----
+**2. Final Evaluation Slide Deck (PPT)**
 
-## Week 12: Project Submission, Asset Packaging & Final Defense Preparation
+* Prepared a structured 20-slide presentation deck covering:
+  * **Problem Statement & Scope:** Addressing severe socio-economic hurdles in Indian agriculture, including unscientific crop selection, erratic meteorological patterns, and volatile APMC pricing[cite: 27].
+  * **Architecture & Persistence Topology:** Visualizing the integration between the Spring Boot REST controllers, Cloud MySQL database, in-memory H2 engine, and HTML5/Bootstrap 5 responsive client[cite: 25, 27, 29].
+  * **Live Telemetry & Geospatial Workflows:** Highlighting the non-blocking execution for WeatherAPI.com integration, soil evapotranspiration modeling, and data.gov.in AGMARKNET synchronization[cite: 27, 28].
+  * **Agronomic & Economic Engines:** Showcasing the 8-parameter precision crop recommendation engine and comprehensive pre-sowing farm production budget ROI calculations[cite: 27, 28].
+  * **Quality Assurance & Testing:** Code coverage reports, 100% passing E2E integration test results (30/30 tests), rate-limit backoff handling, and circuit breaker timeout performance[cite: 25, 28, 40].
+  * View our [PPT of Project Report](#).
 
-During **Week 12**, the team finalized code repositories, performed live environment sanity checks, packaged all project assets, and completed dry-run rehearsals for the final project defense.
+**3. End-to-End Product Video Demonstration**
 
-### Project Deliverables & Artifacts
+* Produced an HD video demonstration showcasing:
+  * **Farmer Onboarding & IAM:** Secure student/farmer registration, profile curation, and multi-plot land registry with GPS coordinates and soil classifications[cite: 28, 37].
+  * **Precision Agronomic Decision Engine:** Real-time generation of optimal crop varieties based on N-P-K benchmarks, coupled with interactive phenological growth calendars mapping actionable tasks[cite: 27, 37].
+  * **Meteorological & Irrigation Advisory:** Live interactive weather gauges, 5-day forecasts, and dynamic evapotranspiration-based irrigation timing[cite: 27, 38].
+  * **Farm Economics & Fertilizer Balancer:** Seamless conversion of elemental nutrient deficits into commercial fertilizer bags alongside break-even price financial projections[cite: 27, 38].
+  * **Geodesic Market Discovery:** Real-time rendering of nearby APMC mandis with turn-by-turn navigation and statistical price trend forecasting[cite: 27, 39].
+  * View our [Final Video](#).
 
-| Deliverable | Description | Resource Link |
-| :--- | :--- | :--- |
-| **📦 Final Submission Package** | Consolidated archive containing Final Report (PDF), Presentation (PPT), Video Demo, and source code | [View Submission Folder (Drive)](#) |
-| **🐙 Production Code Release** | Tagged v1.0.0 production release with deployment instructions and API documentation | [GitHub Repository](#) |
+**4. Containerization & Deployment Audit**
 
-### Key Accomplishments & Milestones
-
-**1. Deliverable Packaging & Repository Finalization**
-- Tagged the stable `v1.0.0` release across backend and frontend repositories; cleaned untracked branches and resolved all outstanding pull requests.
-- Updated root `README.md` documentation with local setup commands, Docker compose instructions, environment variable schemas, and Swagger/OpenAPI endpoint references.
-- Consolidated final evaluation artifacts (PDF report, slide deck, demo video links, and architecture diagrams) into a centralized submission directory for academic review.
-
-**2. Production Sanity Checks & Telemetry Verification**
-- Executed smoke tests on the deployed production instances (Netlify frontend, Render backend, Cloud MySQL database) to verify zero CORS regressions and full SSL handshake validity.
-- Audited live external integrations (AGMARKNET commodity sync and WeatherAPI telemetry) to confirm stable response times and clean cache invalidation cycles under nominal traffic.
-
-**3. Final Defense Rehearsal & Technical Review**
-- Completed presentation dry runs focusing on delivery timing, technical architecture explanations, and live demonstration transitions.
-- Prepared defenses for architectural choices, specifically the Caffeine multi-tier cache fallback strategy, geodesic computational complexity using the Haversine formula, and stateless JWT authorization flows.
+* Finalized production security protocols by completely eliminating hardcoded JWT secrets in favor of externalized environment variables (`JWT_SECRET`) and enforcing BCrypt password hashing[cite: 40].
+* Completed cross-platform validation ensuring the Render containerized Java Web Service, Netlify Global Edge Frontend, and Cloud MySQL database launch seamlessly in production environments with strict CORS restrictions and SSL encryption (`useSSL=true`)[cite: 25, 40].
+* ```
