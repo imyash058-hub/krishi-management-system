@@ -4,7 +4,7 @@
 
 ### Project Administration
 
-**Project Guide:** [Insert Guide Name]
+**Project Guide:** [Er. Ram Babu Buri (Assistant Professor, ML & Agricultural Systems)]
 
 * **Research Area:** [Insert Area]
 * **Specializations:** Java SE, Swing, JDBC, MySQL
