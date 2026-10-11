@@ -4,7 +4,7 @@
 
 ### Project Administration
 
-**Project Guide:** [Er. Ram Babu Buri (Assistant Professor, ML & Agricultural Systems)]
+**Project Guide:** [Er. Ram Babu Buri (Assistant Professor)]
 
 * **Research Area:** [Precision Agriculture and AI-Based Smart Farming]
 * **Specializations:** Java SE, Swing, JDBC, MySQL
