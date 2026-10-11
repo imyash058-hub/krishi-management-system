@@ -839,45 +839,66 @@ The final project demonstration covered the platform's architecture, algorithms,
 * Documented future improvements for accessibility, precision agriculture, and market connectivity.
 * Established a roadmap for expanding Smart Krishi beyond its current core modules.
 
-Week 10: Final System Evaluation, Deliverables & Project Submission
-During Week 10, the Smart Krishi engineering team completed the final system evaluation, production deployment audit, comprehensive technical documentation, project presentation deck (PPT), and end-to-end video demonstration[cite: 40].
+## Week 12: Final System Evaluation, Deliverables & Project Submission
 
-Project Deliverables & Artifacts
-Deliverable	Description	Resource Link
-📄 Final Project Report	Complete Technical Architecture Document, System Requirements Specification (SRS), and Evaluation Metrics	View Project Report (PDF) | SRS.md
-📊 Presentation Deck (PPT)	20-Slide B.Tech Final Project Evaluation Deck covering System Design, Cloud DB, Agronomic Engines & Testing	View Presentation (PPT / Slides)
-🎥 Video Demonstration	HD Video Walkthrough of Smart Krishi Platform (Farmer Onboarding, Crop Recommender, Live Weather & Mandis)	Watch Video Demonstration (YouTube) | Drive Video Link
-🔗 Key Accomplishments & Week 10 Milestones
-1. Final Project Report & Technical Documentation
+During **Week 12**, the Smart Krishi engineering team completed the final system evaluation, production deployment audit, comprehensive technical documentation, project presentation deck (PPT), and end-to-end video demonstration.
 
-Compiled the comprehensive Software Requirements Specification (SRS) and Technical Architecture Document covering:
-Multi-Tier Client-Server Topology orchestrated by a Java 17 Spring Boot 3 backend and a robust Cloud MySQL 8.0+ relational core[cite: 27, 40].
-Multi-Tier Resilient Caching Architecture powered by Caffeine (10-minute fresh cache, 6-hour bounded stale fallback) to ensure high availability in rural network environments[cite: 27, 28].
-Stateless JWT Authentication and strict Role-Based Access Control (RBAC) across ROLE_FARMER, ROLE_ADMIN, and ROLE_GUEST configured at the API gateway layer[cite: 28].
-Algorithmic & Mathematical Modeling detailing the Haversine formula for geodesic distances, statistical rolling moving average price predictions, and ICAR-aligned stoichiometric nutrient conversions[cite: 27, 39].
-View our Final Project Report.
-2. Final Evaluation Slide Deck (PPT)
+### Project Deliverables & Artifacts
 
-Prepared a structured 20-slide presentation deck covering:
-Problem Statement & Scope: Addressing severe socio-economic hurdles in Indian agriculture, including unscientific crop selection, erratic meteorological patterns, and volatile APMC pricing[cite: 27].
-Architecture & Persistence Topology: Visualizing the integration between the Spring Boot REST controllers, Cloud MySQL database, in-memory H2 engine, and HTML5/Bootstrap 5 responsive client[cite: 25, 27, 29].
-Live Telemetry & Geospatial Workflows: Highlighting the non-blocking execution for WeatherAPI.com integration, soil evapotranspiration modeling, and data.gov.in AGMARKNET synchronization[cite: 27, 28].
-Agronomic & Economic Engines: Showcasing the 8-parameter precision crop recommendation engine and comprehensive pre-sowing farm production budget ROI calculations[cite: 27, 28].
-Quality Assurance & Testing: Code coverage reports, 100% passing E2E integration test results (30/30 tests), rate-limit backoff handling, and circuit breaker timeout performance[cite: 25, 28, 40].
-View our PPT of Project Report.
-3. End-to-End Product Video Demonstration
+| **Deliverable**                | **Description**                                                                                                        | **Resource Link**                                                                               |
+| ------------------------------ | ---------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
+| **📄 Final Project Report**    | Technical Architecture Document, Software Requirements Specification (SRS), and evaluation metrics                     | [View Project Repository](https://github.com/imyash058-hub/krishi-management-system) · `SRS.md` |
+| **📊 Presentation Deck (PPT)** | 20-slide B.Tech project evaluation presentation covering system design, cloud database, agronomic engines, and testing | [View Project Repository](https://github.com/imyash058-hub/krishi-management-system)            |
+| **🎥 Video Demonstration**     | Walkthrough of farmer onboarding, crop recommendation, live weather, and mandi features                                | Add your YouTube or Google Drive video link here                                                |
 
-Produced an HD video demonstration showcasing:
-Farmer Onboarding & IAM: Secure student/farmer registration, profile curation, and multi-plot land registry with GPS coordinates and soil classifications[cite: 28, 37].
-Precision Agronomic Decision Engine: Real-time generation of optimal crop varieties based on N-P-K benchmarks, coupled with interactive phenological growth calendars mapping actionable tasks[cite: 27, 37].
-Meteorological & Irrigation Advisory: Live interactive weather gauges, 5-day forecasts, and dynamic evapotranspiration-based irrigation timing[cite: 27, 38].
-Farm Economics & Fertilizer Balancer: Seamless conversion of elemental nutrient deficits into commercial fertilizer bags alongside break-even price financial projections[cite: 27, 38].
-Geodesic Market Discovery: Real-time rendering of nearby APMC mandis with turn-by-turn navigation and statistical price trend forecasting[cite: 27, 39].
-View our Final Video.
-4. Containerization & Deployment Audit
+### 🔗 Key Accomplishments & Week 10 Milestones
 
-Finalized production security protocols by completely eliminating hardcoded JWT secrets in favor of externalized environment variables (JWT_SECRET) and enforcing BCrypt password hashing[cite: 40].
-Completed cross-platform validation ensuring the Render containerized Java Web Service, Netlify Global Edge Frontend, and Cloud MySQL database launch seamlessly in production environments with strict CORS restrictions and SSL encryption (useSSL=true)[cite: 25, 40].
+**1. Final Project Report & Technical Documentation**
+
+Compiled the Software Requirements Specification (SRS) and Technical Architecture Document covering:
+
+* **Multi-Tier Client-Server Architecture:** Java 17, Spring Boot 3 backend, and Cloud MySQL 8.0+ relational database.
+* **Resilient Caching Architecture:** Caffeine caching with a 10-minute fresh cache and a 6-hour bounded stale fallback.
+* **Stateless JWT Authentication:** Role-Based Access Control (RBAC) for `ROLE_FARMER`, `ROLE_ADMIN`, and `ROLE_GUEST`.
+* **Algorithmic & Mathematical Modeling:** Haversine formula for geographical distances, rolling moving-average price predictions, and ICAR-aligned nutrient calculations.
+
+📄 **Project Report:** [Open Smart Krishi Repository](https://github.com/imyash058-hub/krishi-management-system)
+
+**2. Final Evaluation Slide Deck (PPT)**
+
+Prepared a structured 20-slide presentation covering:
+
+* **Problem Statement & Scope:** Agricultural challenges involving crop selection, weather uncertainty, and changing APMC prices.
+* **Architecture & Persistence:** Spring Boot REST controllers, Cloud MySQL, H2 database, and responsive HTML5/Bootstrap 5 frontend.
+* **Live Weather & Market Data:** WeatherAPI.com integration, irrigation advisory, and data.gov.in AGMARKNET synchronization.
+* **Agronomic & Economic Engines:** Eight-parameter crop recommendation engine and farm production budget and ROI calculations.
+* **Quality Assurance & Testing:** Automated integration testing, rate-limit handling, and circuit-breaker timeout behavior. The project report records 30/30 passing tests.
+
+📊 **Presentation:** [Open Smart Krishi Repository](https://github.com/imyash058-hub/krishi-management-system)
+
+**3. End-to-End Product Video Demonstration**
+
+The planned demonstration covers:
+
+* **Farmer Onboarding:** Registration, farmer profiles, land records, GPS coordinates, and soil classification.
+* **Precision Crop Recommendation:** Crop selection using soil nutrient parameters and crop growth calendars.
+* **Weather & Irrigation Advisory:** Weather information, five-day forecasts, and irrigation recommendations.
+* **Farm Economics & Fertilizer Recommendation:** Nutrient calculations, fertilizer requirements, break-even analysis, and profit projections.
+* **Geospatial Market Discovery:** Nearby APMC mandis, navigation, and market price trends.
+
+🎥 **Video Demonstration:** Add your published YouTube or Google Drive link here.
+
+**4. Containerization & Deployment Audit**
+
+* Externalized JWT signing secrets through the `JWT_SECRET` environment variable.
+* Used BCrypt password hashing for password security.
+* Validated deployment architecture involving the Render backend, Netlify frontend, and Cloud MySQL database.
+* Configured cross-origin access restrictions (CORS) and SSL encryption for database connections where supported by the deployment configuration.
+
+### ✅ Week 10 Outcome
+
+The project documentation, presentation materials, deployment configuration, and system evaluation activities were consolidated to support the final Smart Krishi project submission.
+
 ##  Environment Variables Reference
 
 Configure the following variables according to your deployment environment.
