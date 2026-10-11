@@ -864,17 +864,6 @@ Configure the following variables according to your deployment environment.
 * Never commit real passwords, API keys, database credentials, or JWT secrets to GitHub.
 * The `API_BASE_URL` variable works only if your frontend's `config.js` is configured to read it or otherwise uses the corresponding backend URL.
 
-##  Default Credentials (Development Seed)
-
-These credentials are intended for local development or seeded testing environments only.
-
-| Portal                  | Email                    | Password     |
-| ----------------------- | ------------------------ | ------------ |
-| Farmer Portal           | `ramesh@smartkrishi.com` | `Farmer@123` |
-| Admin Governance Portal | `admin@smartkrishi.com`  | `Admin@123`  |
-
-> **Security warning:** Change or disable default credentials before production use. Do not use development seed passwords on a publicly accessible deployment.
-
 ##  Academic Declaration & Acknowledgements
 
 This project was developed by the Smart Krishi engineering team under the academic guidance of **Er. Ram Babu Buri**, Department of Computer Science / Information Technology.
