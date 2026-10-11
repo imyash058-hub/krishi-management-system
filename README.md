@@ -553,7 +553,7 @@ Member 5 focused on geospatial market discovery and statistical commodity price 
 | **3. Weather & Irrigation** | End-to-End | Live WeatherAPI, Evapotranspiration, Caching | Live Weather Telemetry, Multi-Tier Resilient Cache[cite: 53] |
 | **4. Fertilizer & Economics** | End-to-End | ICAR Nutrient Balancer, Pre-Sowing Farm ROI | Commercial Bag Calculator, Farm Financial Engine[cite: 53] |
 | **5. Mandi & Price Predictor** | End-to-End | Haversine Locator, AGMARKNET, Moving Average | Nearby Mandi Discovery, Price Trend Predictor[cite: 53] |
-
+---
 
 ## Week 9
 
@@ -772,7 +772,7 @@ The final project demonstration covered the platform's architecture, algorithms,
 
 * WhatsApp and SMS-based farmer advisory notifications.
 * Direct Farmer-to-Consumer (F2C) agricultural marketplace.
-
+---
 
 ## Week 12: Final System Evaluation, Deliverables & Project Submission
 
