@@ -439,4 +439,110 @@ Member 1 owned the entry point of the application, responsible for secure authen
 * Interactive farmer dashboard displaying weather alerts, land holdings, and quick links.
 
 
+## Week 9
+
+When moving from individual module development to System Integration & End-to-End (E2E) Testing, the focus shifts from isolated unit testing to verifying cross-module data flows, inter-service contracts, security enforcement, performance SLAs, and system resilience[cite: 15, 18]. 
+
+In this phase, each team member takes on an Integration & Testing Lead role for their respective domain, working together to ensure all five modules function as a unified, production-ready system[cite: 15, 18].
+
+---
+
+### 1. Member 1: Authentication, Dashboard & Navigation Flow Integration Lead
+
+**Integration & Testing Role**
+Authentication, Dashboard, and Navigation Flow Lead[cite: 15].
+
+**Work & Scope**
+* **End-to-End Core Integration:** Integrated User Authentication, Landholdings, JWT, and Role-Based Access Control (RBAC) across the central frontend dashboard[cite: 14].
+
+**Problems Faced During Integration**
+1. **Asynchronous UI Race Conditions:** Concurrent API calls on page load (weather, mandi rates, and farmer profile) caused intermittent rendering flickers[cite: 15].
+
+**What They Completed**
+* Refactored client scripts using `Promise.allSettled()` and standard skeleton loaders to resolve rendering race conditions[cite: 15].
+* Verified 16 Full-Context Integration Tests within the Spring Boot context to ensure system stability[cite: 12].
+
+---
+
+### 2. Member 2: Agronomic Advisory & Crop Recommendation Pipeline Integration Lead
+
+**Integration & Testing Role**
+Agronomic Advisory and Crop Recommendation Pipeline Lead[cite: 15].
+
+**Work & Scope**
+* **Agronomic Engine Integration:** Linked the 8-Parameter Crop Recommendation engine and Dynamic Phenological Growth Calendar directly into the farmer's E2E workflow[cite: 14].
+
+**Problems Faced During Integration**
+1. **Cross-Module Data Flow Verification:** Required strict synchronization to ensure farmer profile data and soil metrics correctly piped into the recommendation engine without data loss[cite: 14, 15].
+
+**What They Completed**
+* Successfully integrated the Agronomic Recommender and Dynamic Growth Calendar pipelines[cite: 14].
+* Ensured seamless transitions between land registration and receiving personalized crop advice[cite: 15].
+
+---
+
+### 3. Member 3: Weather Telemetry, Multi-Tier Caching & Upstream Backoff Resilience Integration Lead
+
+**Integration & Testing Role**
+Weather Telemetry, Multi-Tier Caching, and Upstream Backoff Resilience Lead[cite: 15].
+
+**Work & Scope**
+* **Telemetry Orchestration:** Validated cross-module integration of Live WeatherAPI telemetry, Evapotranspiration models, and the multi-tier resilient cache[cite: 14].
+
+**Problems Faced During Integration**
+1. **Coordinate Normalization Discrepancies:** The Weather module used 4-decimal precision (e.g., 26.9124, 75.7873) while the Mandi module used floating-point values, causing cache misses when sharing coordinates[cite: 15].
+
+**What They Completed**
+* Standardized `normalizeCoordsKey()` across all services to ensure coordinate formats aligned[cite: 15].
+* Executed 14 resilient telemetry unit tests verifying rate-limiting and timeout backoff behaviors[cite: 12, 15].
+
+---
+
+### 4. Member 4: Fertilizer Balancing & Farm Financial Calculation Integrity Integration Lead
+
+**Integration & Testing Role**
+Fertilizer Balancing and Farm Financial Calculation Integrity Lead[cite: 15].
+
+**Work & Scope**
+* **Economic & Nutritional Pipeline:** Connected the ICAR Nutrient Balancer, Commercial Bag Calculator, and Pre-Sowing Farm ROI modules into the broader decision-support pipeline[cite: 14].
+
+**Problems Faced During Integration**
+1. **End-to-End Calculation Integrity:** Guaranteeing that the cross-module transition from crop recommendation to financial budgeting maintained strict mathematical accuracy based on the user's selected plot size[cite: 14, 15].
+
+**What They Completed**
+* Validated the Farm Financial Engine and Commercial Bag Calculator under cross-module data flows[cite: 14].
+* Ensured seamless integration of the Pre-Sowing Farm ROI calculations[cite: 14].
+
+---
+
+### 5. Member 5: Mandi Geospatial Navigation & AGMARKNET Fault Tolerance Integration Lead
+
+**Integration & Testing Role**
+Mandi Geospatial Navigation and AGMARKNET Fault Tolerance Lead[cite: 15].
+
+**Work & Scope**
+* **Market Data Synchronization:** Integrated the Haversine Locator, live AGMARKNET API telemetry, and the Statistical Moving Average Price Predictor[cite: 14].
+
+**Problems Faced During Integration**
+1. **Stale Cache vs Live Updates:** After updating landholdings or baseline market prices, cached responses occasionally served outdated values to the frontend[cite: 15].
+
+**What They Completed**
+* Integrated automated cache eviction hooks upon database writes to ensure the frontend always reflects live updates[cite: 15].
+* Finalized the multi-tier fallback architecture ensuring graceful degradation if the government APMC API goes down[cite: 14].
+
+---
+
+### Overall System Integration Summary
+
+During the final Full System Acceptance Testing, all 5 team members executed unified end-to-end user journeys:
+
+```text
+[Farmer Registers Land (Mem 1)] -> [Receives Crop Advice (Mem 2)]
+                                                |
+                                                v
+[Calculates Fertilizer & ROI (Mem 4)] <- [Fetches Live Weather (Mem 3)]
+                 |
+                 v
+[Finds Nearest Mandi (Mem 5)]
+
 
