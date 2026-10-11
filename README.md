@@ -184,6 +184,7 @@ flowchart TD
     class WeatherAPI,Agmarknet cloud;
     class Database db;
 ```
+---
 ## Week 4: Database Design & UI Mock-ups
 
 ## 1. Database Architecture & Persistence Strategy
@@ -345,7 +346,7 @@ Features an 8-parameter crop recommendation interface and an interactive phenolo
 
 * [Smart Krishi Crop Engine]
 ![Crop Recommendation Engine](https://github.com/imyash058-hub/krishi-management-system/blob/main/Screenshot%202026-10-11%20171239.png)
-
+---
 ## Week 5
 
 * Here is the complete project directory structure for **Smart Krishi**[cite: 80, 81]:
@@ -436,7 +437,7 @@ Member 1 owned the entry point of the application, responsible for secure authen
 * Secure, stateless JWT authentication with BCrypt password hashing.
 * Multi-plot land registry supporting acreages, soil classifications, and irrigation types.
 * Interactive farmer dashboard displaying weather alerts, land holdings, and quick links.
-
+---
 * ## Week 6
 
 ### 1. Member 1: Farmer & Land Management / Authentication & Dashboard Core
@@ -477,7 +478,7 @@ Member 2 built the core agronomic decision support tools, bridging the gap betwe
 **What They Completed**
 * An 8-parameter crop recommendation engine returning primary and secondary crop choices paired with confidence scores[cite: 52].
 * An interactive crop growth timeline calculating actionable tasks (e.g., Paleva, basal fertilizer, irrigation timing) based on real-world sowing dates[cite: 52].
-
+---
 * ## Week 7
 
 ### 3. Member 3: Live Meteorological Telemetry & Precision Irrigation Advisory
