@@ -337,7 +337,7 @@ erDiagram
 Features an interactive central farmer workspace, multi-plot land registry supporting acreages and soil classifications, and weather alerts[cite: 82].
 
 * [Smart Krishi Farmer Dashboard]
-![Farmer Dashboard](<img width="1913" height="922" alt="Screenshot 2026-10-11 150515" src="https://github.com/user-attachments/assets/38f0028a-f8c2-433d-b144-742d392d1d4c" />
+![Farmer Dashboard](https://github.com/imyash058-hub/krishi-management-system/blob/main/Screenshot%202026-10-11%20150515.png
 )
 
 ### B. Precision Crop Recommendation Engine
