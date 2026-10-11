@@ -436,6 +436,47 @@ Member 1 owned the entry point of the application, responsible for secure authen
 * Multi-plot land registry supporting acreages, soil classifications, and irrigation types.
 * Interactive farmer dashboard displaying weather alerts, land holdings, and quick links.
 
+* ## Week 6
+
+### 1. Member 1: Farmer & Land Management / Authentication & Dashboard Core
+
+**Role & Scope of Work**
+Member 1 focused on the core identity and land management systems, providing farmers with a secure and personalized portal[cite: 51].
+
+* **Frontend (User Interface & State):** Developed responsive authentication screens (`login.html`, `register.html`), the central farmer workspace (`dashboard.html`), profile management (`profile.html`), and navigation components[cite: 51].
+* **Backend (API Logic):** Implemented stateless Spring Security 6 authentication filters, JWT utility tokens (`JwtUtil.java`), user credential authentication, and farmer profile/land parcel REST controllers (`FarmerController.java`)[cite: 51].
+* **Database & Schemas:** Designed relational schemas for `users`, `farmer_profiles`, and `farms`, enforcing strict foreign key constraints and cascade rules[cite: 51].
+
+**Problems & Challenges Faced**
+1. **Hardcoded Secret Vulnerability:** The JWT configuration originally included hardcoded fallback strings[cite: 51]. Solved by decoupling secrets into externalized environment variables (`${JWT_SECRET}`) and rejecting fallback defaults in the source code[cite: 51].
+2. **Token Lifecycle in Client LocalStorage:** Stale or expired tokens triggered silent frontend fetch failures[cite: 51, 52]. Solved by adding an HTTP 401 interceptor in `frontend/js/api.js` that automatically purges invalid credentials and redirects users to the login screen[cite: 52].
+3. **Multi-Plot Land Parcel Cascading Deletions:** Deleting a farmer profile risked leaving orphaned land records in the database[cite: 52]. Solved by applying the JPA annotation `@OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)` to ensure complete data cleanup[cite: 52].
+
+**What They Completed**
+* Secure, stateless JWT authentication system utilizing BCrypt password hashing[cite: 52].
+* A multi-plot land registry supporting exact acreages, soil classifications, and irrigation types[cite: 52].
+* An interactive farmer dashboard displaying weather alerts, active land holdings, and quick links[cite: 52].
+
+---
+
+### 2. Member 2: Precision Crop Recommendation & Phenological Crop Calendars
+
+**Role & Scope of Work**
+Member 2 built the core agronomic decision support tools, bridging the gap between raw soil data and actionable farming timelines[cite: 52].
+
+* **Frontend (User Interface & State):** Built the 8-parameter crop recommendation interface (`crop-recommendation.html`) and the interactive crop growth calendar (`crop-calendar.html`)[cite: 52].
+* **Backend (API Logic):** Implemented the complex agronomic decision engine (`CropRecommendationService.java`) and the phenological growth calendar service (`CropCalendarService.java`)[cite: 52].
+* **Agronomic Modeling:** Defined specific biological growth stages (Sowing, CRI, Vegetative, Flowering, Grain Filling, Harvest) for 11 major Indian crops, including Wheat, Rice, and Cotton[cite: 52].
+
+**Problems & Challenges Faced**
+1. **Soil & Climatic Boundary Clashing:** Borderline soil test values (e.g., pH 6.4 vs 6.5) caused unstable recommendation outputs[cite: 52]. Solved by implementing weighted scoring bands across Nitrogen, Phosphorus, Potassium, and pH levels instead of rigid thresholds[cite: 52].
+2. **Dynamic Calendar Date Calculation:** Static "days-after-sowing" figures were difficult for farmers to interpret practically[cite: 52]. Solved by creating an engine that accepts a farmer's specific real-world sowing date and dynamically calculates calendar date ranges for each subsequent phase[cite: 52].
+3. **Unlisted Crop Fallback:** Searching for exotic or regional crops could throw null pointer exceptions[cite: 52]. Solved by implementing a generalized, balanced phenological fallback model for unrecognized crops[cite: 52].
+
+**What They Completed**
+* An 8-parameter crop recommendation engine returning primary and secondary crop choices paired with confidence scores[cite: 52].
+* An interactive crop growth timeline calculating actionable tasks (e.g., Paleva, basal fertilizer, irrigation timing) based on real-world sowing dates[cite: 52].
+
 * ## Week 7
 
 ### 3. Member 3: Live Meteorological Telemetry & Precision Irrigation Advisory
