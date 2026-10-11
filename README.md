@@ -365,4 +365,6 @@ Member 1 owned the entry point of the application, responsible for secure authen
 * Multi-plot land registry supporting acreages, soil classifications, and irrigation types.
 * Interactive farmer dashboard displaying weather alerts, land holdings, and quick links.
 
+* hello
+
 
