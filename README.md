@@ -344,7 +344,7 @@ Features an interactive central farmer workspace, multi-plot land registry suppo
 Features an 8-parameter crop recommendation interface and an interactive phenological crop growth timeline[cite: 82].
 
 * [Smart Krishi Crop Engine]
-![Crop Recommendation Engine]()
+![Crop Recommendation Engine](https://github.com/imyash058-hub/krishi-management-system/blob/main/Screenshot%202026-10-11%20171239.png)
 
 ## Week 5
 
