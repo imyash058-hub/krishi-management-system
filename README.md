@@ -780,7 +780,7 @@ The pipeline requires all **30 automated tests to pass** before proceeding throu
 
 ---
 
-## 📅 Week 12: User Acceptance Testing (UAT), Pilot Field Feedback, Final Viva Defense & Future Roadmap
+##  Week 12: User Acceptance Testing (UAT), Pilot Field Feedback, Final Viva Defense & Future Roadmap
 
 During Week 12, Smart Krishi underwent user acceptance testing, farmer usability evaluations, final academic project evaluation, and future scalability planning.
 
@@ -841,7 +841,7 @@ The final project demonstration covered the platform's architecture, algorithms,
 
 ---
 
-## ✅ Final Project Summary
+##  Final Project Summary
 
 Smart Krishi combines farmer and land management, crop recommendation, live weather and irrigation advice, fertilizer planning, farm profit calculations, crop calendars, nearby mandi discovery, and market-price forecasting.
 
