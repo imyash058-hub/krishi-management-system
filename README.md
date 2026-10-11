@@ -327,7 +327,7 @@ erDiagram
         string applicable_state
         timestamp created_at
     }
-    ```
+```
 
 ---
 
