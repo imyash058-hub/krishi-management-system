@@ -710,21 +710,142 @@ During **Week 10**, the Smart Krishi engineering team completed the final system
 
 * Finalized production security protocols by completely eliminating hardcoded JWT secrets in favor of externalized environment variables (`JWT_SECRET`) and enforcing BCrypt password hashing[cite: 40].
 * Completed cross-platform validation ensuring the Render containerized Java Web Service, Netlify Global Edge Frontend, and Cloud MySQL database launch seamlessly in production environments with strict CORS restrictions and SSL encryption (`useSSL=true`)[cite: 25, 40].
-* ```
-## Week 11: 
-Automation
-During Week 11, the engineering team executed systematic performance profiling, database index optimization, high
-concurrency stress testing, and automated Continuous Integration & Continuous Deployment (CI/CD) pipelines.
-1. Database Indexing & Query Execution Optimization
-Slow Query Analysis: Profiling the historical APMC market rate dataset (
-market_prices table with 40+ time-series records)
-and geospatial proximity lookups revealed opportunities for indexing improvements under high concurrent read pressure.
-B-Tree Composite Indexes: Added targeted database indexes:
-CREATE INDEX idx_market_prices_lookup ON market_prices (commodity, state, district);
-CREATE INDEX idx_market_prices_trend ON market_prices (commodity, price_date DESC);
-Reduced APMC commodity search query latency from 48 ms to 2.1 ms (a 95.6% improvement).
-HikariCP Connection Pool Tuning: Configured optimal pool parameters in 
-spring.datasource.hikari.maximum-pool-size=10
-spring.datasource.hikari.minimum-idle=5
-spring.datasource.hikari.idle-timeout=30000
-spring.datasource.hikari.connection-timeout=20000
+
+## 📅 Week 11: Production Performance Optimization, Security Hardening & CI/CD Automation
+
+During Week 11, the Smart Krishi platform underwent performance optimization, database indexing, concurrent-user stress testing, security auditing, and automated Continuous Integration and Continuous Deployment (CI/CD) pipeline configuration.
+
+### 1. Database Indexing & Query Optimization
+
+* Analyzed database queries for historical APMC market prices and geospatial mandi searches.
+* Added composite database indexes to improve market-price lookup and trend analysis.
+* Reduced APMC commodity search query latency from **48 ms to 2.1 ms**, achieving a reported **95.6% improvement**.
+* Tuned HikariCP database connection pooling for improved connection management.
+
+**Database Indexes:**
+
+```sql
+CREATE INDEX idx_market_prices_lookup
+ON market_prices (commodity, state, district);
+
+CREATE INDEX idx_market_prices_trend
+ON market_prices (commodity, price_date DESC);
+```
+
+### 2. High-Concurrency Stress Testing
+
+Simulated 500 concurrent virtual users to evaluate the performance of core REST API endpoints.
+
+| REST API Endpoint         | Average Latency | P95 Latency | Error Rate |
+| ------------------------- | --------------: | ----------: | ---------: |
+| Weather API (Cached)      |           18 ms |       42 ms |      0.00% |
+| Nearby Mandi API          |           32 ms |       78 ms |      0.00% |
+| Fertilizer Recommendation |           24 ms |       55 ms |      0.00% |
+| Farm Profit Calculator    |           15 ms |       38 ms |      0.00% |
+| Crop Calendar             |           21 ms |       49 ms |      0.00% |
+
+All listed endpoints passed the report's target of less than 100 ms average response time.
+
+### 3. Automated CI/CD Pipeline
+
+Established an automated deployment workflow to validate code changes before deployment.
+
+**Pipeline Workflow:**
+
+1. Developer pushes code to GitHub.
+2. Maven builds and compiles the Spring Boot backend.
+3. Automated unit and integration tests execute.
+4. Docker container image is built.
+5. Backend is deployed to Render and the frontend to Netlify.
+6. Health checks verify service availability.
+
+The pipeline requires all **30 automated tests to pass** before proceeding through the deployment workflow.
+
+### 4. Security Hardening & OWASP Audit
+
+* Implemented Spring Security 6 with JWT-based authentication and role-based access control.
+* Used BCrypt password hashing and externalized the `JWT_SECRET` environment variable.
+* Applied parameterized database queries to help prevent SQL injection.
+* Added DOMPurify and text encoding protections against malicious HTML and XSS.
+* Removed unnecessary public methods that could expose sensitive API credentials.
+* Improved expired-token handling through the frontend HTTP 401 interceptor.
+
+### Week 11 Outcomes
+
+* Improved database query performance.
+* Evaluated API performance under concurrent load.
+* Strengthened authentication and application security.
+* Established automated build, test, and deployment workflows.
+* Verified the reported 30-test suite with zero failures.
+
+---
+
+## 📅 Week 12: User Acceptance Testing (UAT), Pilot Field Feedback, Final Viva Defense & Future Roadmap
+
+During Week 12, Smart Krishi underwent user acceptance testing, farmer usability evaluations, final academic project evaluation, and future scalability planning.
+
+### 1. Pilot Field Testing & Farmer Usability Evaluation
+
+The report describes pilot usability evaluations across farming communities in Rajasthan and Maharashtra.
+
+| Farmer Profile   | Region           | Evaluated Module             | Usability Score |
+| ---------------- | ---------------- | ---------------------------- | --------------: |
+| Ramesh Choudhary | Sanganer, Jaipur | Weather & Irrigation         |          9.4/10 |
+| Sunita Meena     | Bassi, Jaipur    | Fertilizer Recommendation    |          9.7/10 |
+| Vikram Solanki   | Ladpura, Kota    | Farm Profit & ROI Calculator |          9.5/10 |
+| Mahendra Patil   | Baramati, Pune   | Nearby Mandi Discovery       |          9.8/10 |
+
+**Key Feedback and Improvements:**
+
+* Added locally understandable soil classification terminology.
+* Evaluated fertilizer bag calculations to help reduce excessive fertilizer use.
+* Used break-even price calculations to support crop and acreage planning.
+* Evaluated nearby mandi discovery to help farmers compare market prices.
+
+### 2. Final Academic Evaluation & Viva Voce
+
+The final project demonstration covered the platform's architecture, algorithms, fault tolerance, and automated testing.
+
+**Technical Highlights:**
+
+* Explained the Java 17 and Spring Boot multi-tier architecture.
+* Demonstrated the Haversine formula for calculating nearby mandi distances.
+* Explained statistical rolling moving average price prediction.
+* Demonstrated fallback weather data handling during API rate limits and network timeouts.
+* Executed the Maven test suite, with the report recording 30 out of 30 tests passing.
+* Presented the project's technical implementation and potential agricultural benefits.
+
+### 3. Future Engineering Roadmap
+
+**Phase I: Accessibility & Ground Reach**
+
+* Multilingual support for Hindi, Punjabi, Marathi, and Gujarati.
+* Voice-guided interfaces and regional-language audio prompts.
+
+**Phase II: Precision IoT & Remote Sensing**
+
+* IoT soil sensor integration using ESP32 and LoRaWAN.
+* Sentinel-2 satellite imagery and NDVI-based crop health monitoring.
+
+**Phase III: Communication & Direct Market Access**
+
+* WhatsApp and SMS-based farmer advisory notifications.
+* Direct Farmer-to-Consumer (F2C) agricultural marketplace.
+
+### Week 12 Outcomes
+
+* Completed the reported farmer usability evaluation.
+* Presented the platform during final academic evaluation and viva voce.
+* Documented future improvements for accessibility, precision agriculture, and market connectivity.
+* Established a roadmap for expanding Smart Krishi beyond its current core modules.
+
+---
+
+## ✅ Final Project Summary
+
+Smart Krishi combines farmer and land management, crop recommendation, live weather and irrigation advice, fertilizer planning, farm profit calculations, crop calendars, nearby mandi discovery, and market-price forecasting.
+
+**Technology Stack:** Java 17, Spring Boot 3.3.4, Spring Security 6, JWT, Spring Data JPA, MySQL, H2, Caffeine Cache, HTML5, CSS3, JavaScript, Bootstrap 5.3, Netlify, Render, and Docker.
+
+**Reported Final Status:** 30 automated tests passed, performance testing completed, security audit documented, and future scalability roadmap defined.
+
