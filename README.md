@@ -542,6 +542,7 @@ During the final Full System Acceptance Testing, all 5 team members executed uni
                  |
                  v
 [Finds Nearest Mandi (Mem 5)]
+```
 
 
 ## Week 10: Final System Evaluation, Deliverables & Project Submission
@@ -591,3 +592,4 @@ During **Week 10**, the Smart Krishi engineering team completed the final system
 
 * Finalized production security protocols by completely eliminating hardcoded JWT secrets in favor of externalized environment variables (`JWT_SECRET`) and enforcing BCrypt password hashing[cite: 40].
 * Completed cross-platform validation ensuring the Render containerized Java Web Service, Netlify Global Edge Frontend, and Cloud MySQL database launch seamlessly in production environments with strict CORS restrictions and SSL encryption (`useSSL=true`)[cite: 25, 40].
+* ```
