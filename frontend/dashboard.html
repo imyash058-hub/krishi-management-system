@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Farmer Dashboard | Smart Krishi – Precision Agriculture Platform</title>
+  <!-- Google Fonts Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- Bootstrap 5 CSS & Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Dynamic Navbar -->
+  <div id="navbar-container"></div>
+
+  <main class="py-4">
+    <div class="container">
+      <!-- Welcome Header -->
+      <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center bg-white p-4 rounded-3 border shadow-sm mb-4">
+        <div>
+          <span class="badge bg-success-subtle text-success mb-1">Farmer Portal</span>
+          <h2 class="fw-bold mb-1">Namaste, <span id="dashboard-farmer-name">Farmer</span>! 🌾</h2>
+          <div class="text-muted small d-flex flex-wrap gap-3">
+            <span><i class="bi bi-geo-alt-fill text-danger me-1"></i><span id="farmer-location-tag">Location</span></span>
+            <span><i class="bi bi-grid-3x3-gap-fill text-primary me-1"></i><span id="farmer-land-tag">Land Holding</span></span>
+          </div>
+        </div>
+        <div class="mt-3 mt-md-0 d-flex gap-2">
+          <a href="crop-recommendation.html" class="btn btn-agro-primary">
+            <i class="bi bi-cpu me-1"></i>New Recommendation
+          </a>
+          <a href="profile.html" class="btn btn-agro-outline">
+            <i class="bi bi-person-gear me-1"></i>Edit Profile
+          </a>
+        </div>
+      </div>
+
+      <!-- Row 1: Weather & Smart Irrigation Widget + Today's Mandi Highlights -->
+      <div class="row g-4 mb-4">
+        <!-- Weather Summary Widget -->
+        <div class="col-lg-6">
+          <div class="agro-card p-4">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+              <h5 class="fw-bold text-dark mb-0"><i class="bi bi-cloud-sun text-warning me-2"></i>Local Weather & Irrigation</h5>
+              <a href="weather.html" class="small text-success fw-semibold">Detailed Forecast <i class="bi bi-arrow-right"></i></a>
+            </div>
+            <div id="dash-weather-box">
+              <div class="text-center py-4 text-muted">
+                <span class="loading-spinner"></span>
+                <p class="small mt-2 mb-0">Fetching live weather data...</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Market Highlights Widget -->
+        <div class="col-lg-6">
+          <div class="agro-card p-4">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+              <h5 class="fw-bold text-dark mb-0"><i class="bi bi-graph-up-arrow text-success me-2"></i>Mandi Price Highlights</h5>
+              <a href="market-prices.html" class="small text-success fw-semibold">View All APMCs <i class="bi bi-arrow-right"></i></a>
+            </div>
+            <div id="dash-market-container">
+              <div class="text-center py-4 text-muted">
+                <span class="loading-spinner"></span>
+                <p class="small mt-2 mb-0">Loading prices...</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Row 2: 4 Quick-Access Module Cards -->
+      <div class="row g-3 mb-4">
+        <div class="col-12">
+          <h5 class="fw-bold text-dark mb-2">Quick Navigation Modules</h5>
+        </div>
+        <div class="col-lg-3 col-md-6 col-sm-6">
+          <a href="crop-recommendation.html" class="agro-card p-3 text-center text-decoration-none">
+            <div class="card-icon-box icon-blue mx-auto mb-2"><i class="bi bi-cpu"></i></div>
+            <h6 class="fw-bold text-dark mb-1">Crop Recommendation</h6>
+            <div class="small text-muted">NPK & Soil Analysis</div>
+          </a>
+        </div>
+        <div class="col-lg-3 col-md-6 col-sm-6">
+          <a href="weather.html" class="agro-card p-3 text-center text-decoration-none">
+            <div class="card-icon-box icon-amber mx-auto mb-2"><i class="bi bi-cloud-rain"></i></div>
+            <h6 class="fw-bold text-dark mb-1">Weather & Irrigation</h6>
+            <div class="small text-muted">Smart Watering Window</div>
+          </a>
+        </div>
+        <div class="col-lg-3 col-md-6 col-sm-6">
+          <a href="market-prices.html" class="agro-card p-3 text-center text-decoration-none">
+            <div class="card-icon-box icon-purple mx-auto mb-2"><i class="bi bi-cash-stack"></i></div>
+            <h6 class="fw-bold text-dark mb-1">Mandi Prices & Nearby Mandis</h6>
+            <div class="small text-muted">Live APMC Prices & Navigation</div>
+          </a>
+        </div>
+        <div class="col-lg-3 col-md-6 col-sm-6">
+          <a href="profile.html" class="agro-card p-3 text-center text-decoration-none">
+            <div class="card-icon-box icon-green mx-auto mb-2"><i class="bi bi-person-lines-fill"></i></div>
+            <h6 class="fw-bold text-dark mb-1">Farmer & Land Management</h6>
+            <div class="small text-muted">Land Holdings & Soil Profile</div>
+          </a>
+        </div>
+      </div>
+
+      <!-- Row 2.5: 4 Smart Precision Agriculture Tools -->
+      <div class="row g-3 mb-4">
+        <div class="col-12">
+          <h5 class="fw-bold text-dark mb-2"><i class="bi bi-grid-3x3-gap-fill text-success me-2"></i>Smart Precision Tools</h5>
+        </div>
+        <div class="col-lg-3 col-sm-6">
+          <a href="fertilizer.html" class="agro-card p-3 text-center text-decoration-none">
+            <div class="card-icon-box icon-green mx-auto mb-2"><i class="bi bi-droplet-half"></i></div>
+            <h6 class="fw-bold text-dark mb-1">Fertilizer Recommendation</h6>
+            <div class="small text-muted">ICAR Nutrient Balancing</div>
+          </a>
+        </div>
+        <div class="col-lg-3 col-sm-6">
+          <a href="profit-calculator.html" class="agro-card p-3 text-center text-decoration-none">
+            <div class="card-icon-box icon-blue mx-auto mb-2"><i class="bi bi-calculator"></i></div>
+            <h6 class="fw-bold text-dark mb-1">Profit / ROI Calculator</h6>
+            <div class="small text-muted">Margins & Break-Even</div>
+          </a>
+        </div>
+        <div class="col-lg-3 col-sm-6">
+          <a href="crop-calendar.html" class="agro-card p-3 text-center text-decoration-none">
+            <div class="card-icon-box icon-amber mx-auto mb-2"><i class="bi bi-calendar3"></i></div>
+            <h6 class="fw-bold text-dark mb-1">Crop Calendar & Advisory</h6>
+            <div class="small text-muted">Sowing to Harvest Timeline</div>
+          </a>
+        </div>
+        <div class="col-lg-3 col-sm-6">
+          <a href="price-prediction.html" class="agro-card p-3 text-center text-decoration-none">
+            <div class="card-icon-box icon-red mx-auto mb-2"><i class="bi bi-graph-up-arrow"></i></div>
+            <h6 class="fw-bold text-dark mb-1">Price Prediction</h6>
+            <div class="small text-muted">APMC Momentum Trends</div>
+          </a>
+        </div>
+      </div>
+
+      <!-- Row 3: Recent Activity & Precision Shortcuts -->
+      <div class="row g-4">
+        <!-- Recent Recommendations -->
+        <div class="col-lg-6">
+          <div class="agro-card p-4">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+              <h5 class="fw-bold text-dark mb-0"><i class="bi bi-clock-history me-2 text-success"></i>Latest Crop Recommendation</h5>
+              <a href="crop-recommendation.html" class="small text-success fw-semibold">New Test</a>
+            </div>
+            <div id="dash-recent-recs">
+              <!-- Populated by dashboard.js -->
+            </div>
+          </div>
+        </div>
+
+        <!-- Precision Advisory Shortcuts -->
+        <div class="col-lg-6">
+          <div class="agro-card p-4">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+              <h5 class="fw-bold text-dark mb-0"><i class="bi bi-compass me-2 text-primary"></i>Precision Advisory Shortcuts</h5>
+              <a href="fertilizer.html" class="small text-primary fw-semibold">Explore Tools <i class="bi bi-arrow-right"></i></a>
+            </div>
+            <div class="d-flex flex-column gap-3">
+              <div class="p-3 rounded bg-light border d-flex align-items-center justify-content-between">
+                <div class="d-flex align-items-center gap-3">
+                  <div class="card-icon-box icon-green" style="width: 40px; height: 40px; font-size: 1.1rem;"><i class="bi bi-droplet-half"></i></div>
+                  <div>
+                    <div class="fw-bold text-dark">Fertilizer Dose Calculator</div>
+                    <div class="small text-muted">Get NPK split schedule for your soil</div>
+                  </div>
+                </div>
+                <a href="fertilizer.html" class="btn btn-sm btn-outline-success">Calculate</a>
+              </div>
+              <div class="p-3 rounded bg-light border d-flex align-items-center justify-content-between">
+                <div class="d-flex align-items-center gap-3">
+                  <div class="card-icon-box icon-blue" style="width: 40px; height: 40px; font-size: 1.1rem;"><i class="bi bi-calculator"></i></div>
+                  <div>
+                    <div class="fw-bold text-dark">Crop Profit & ROI</div>
+                    <div class="small text-muted">Estimate harvest revenue and break-even</div>
+                  </div>
+                </div>
+                <a href="profit-calculator.html" class="btn btn-sm btn-outline-primary">Estimate</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Dynamic Footer -->
+  <div id="footer-container"></div>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/config.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/dashboard.js"></script>
+</body>
+</html>
