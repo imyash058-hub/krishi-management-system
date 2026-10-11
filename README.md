@@ -711,7 +711,7 @@ During **Week 10**, the Smart Krishi engineering team completed the final system
 * Finalized production security protocols by completely eliminating hardcoded JWT secrets in favor of externalized environment variables (`JWT_SECRET`) and enforcing BCrypt password hashing[cite: 40].
 * Completed cross-platform validation ensuring the Render containerized Java Web Service, Netlify Global Edge Frontend, and Cloud MySQL database launch seamlessly in production environments with strict CORS restrictions and SSL encryption (`useSSL=true`)[cite: 25, 40].
 
-## 📅 Week 11: Production Performance Optimization, Security Hardening & CI/CD Automation
+##  Week 10: Production Performance Optimization, Security Hardening & CI/CD Automation
 
 During Week 11, the Smart Krishi platform underwent performance optimization, database indexing, concurrent-user stress testing, security auditing, and automated Continuous Integration and Continuous Deployment (CI/CD) pipeline configuration.
 
@@ -769,20 +769,11 @@ The pipeline requires all **30 automated tests to pass** before proceeding throu
 * Added DOMPurify and text encoding protections against malicious HTML and XSS.
 * Removed unnecessary public methods that could expose sensitive API credentials.
 * Improved expired-token handling through the frontend HTTP 401 interceptor.
-
-### Week 11 Outcomes
-
-* Improved database query performance.
-* Evaluated API performance under concurrent load.
-* Strengthened authentication and application security.
-* Established automated build, test, and deployment workflows.
-* Verified the reported 30-test suite with zero failures.
-
 ---
 
-##  Week 12: User Acceptance Testing (UAT), Pilot Field Feedback, Final Viva Defense & Future Roadmap
+##  Week 11: User Acceptance Testing (UAT), Pilot Field Feedback, Final Viva Defense & Future Roadmap
 
-During Week 12, Smart Krishi underwent user acceptance testing, farmer usability evaluations, final academic project evaluation, and future scalability planning.
+During Week 11, Smart Krishi underwent user acceptance testing, farmer usability evaluations, final academic project evaluation, and future scalability planning.
 
 ### 1. Pilot Field Testing & Farmer Usability Evaluation
 
@@ -832,12 +823,6 @@ The final project demonstration covered the platform's architecture, algorithms,
 * WhatsApp and SMS-based farmer advisory notifications.
 * Direct Farmer-to-Consumer (F2C) agricultural marketplace.
 
-### Week 12 Outcomes
-
-* Completed the reported farmer usability evaluation.
-* Presented the platform during final academic evaluation and viva voce.
-* Documented future improvements for accessibility, precision agriculture, and market connectivity.
-* Established a roadmap for expanding Smart Krishi beyond its current core modules.
 
 ## Week 12: Final System Evaluation, Deliverables & Project Submission
 
@@ -849,9 +834,9 @@ During **Week 12**, the Smart Krishi engineering team completed the final system
 | ------------------------------ | ---------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
 | **📄 Final Project Report**    | Technical Architecture Document, Software Requirements Specification (SRS), and evaluation metrics                     | [View Project Repository](https://github.com/imyash058-hub/krishi-management-system) · `SRS.md` |
 | **📊 Presentation Deck (PPT)** | 20-slide B.Tech project evaluation presentation covering system design, cloud database, agronomic engines, and testing | [View Project Repository](https://github.com/imyash058-hub/krishi-management-system)            |
-| **🎥 Video Demonstration**     | Walkthrough of farmer onboarding, crop recommendation, live weather, and mandi features                                | Add your YouTube or Google Drive video link here                                                |
+| **🎥 Video Demonstration**     | Walkthrough of farmer onboarding, crop recommendation, live weather, and mandi features                                |  [Watch Video Demonstration (YouTube)](#) \| [Drive Video Link](#) |
 
-### 🔗 Key Accomplishments & Week 10 Milestones
+### 🔗 Key Accomplishments & Week 12 Milestones
 
 **1. Final Project Report & Technical Documentation**
 
@@ -886,8 +871,7 @@ The planned demonstration covers:
 * **Farm Economics & Fertilizer Recommendation:** Nutrient calculations, fertilizer requirements, break-even analysis, and profit projections.
 * **Geospatial Market Discovery:** Nearby APMC mandis, navigation, and market price trends.
 
-🎥 **Video Demonstration:** Add your published YouTube or Google Drive link here.
-
+🎥 **Video Demonstration:**[Final Video](#).
 **4. Containerization & Deployment Audit**
 
 * Externalized JWT signing secrets through the `JWT_SECRET` environment variable.
@@ -895,9 +879,6 @@ The planned demonstration covers:
 * Validated deployment architecture involving the Render backend, Netlify frontend, and Cloud MySQL database.
 * Configured cross-origin access restrictions (CORS) and SSL encryption for database connections where supported by the deployment configuration.
 
-### ✅ Week 10 Outcome
-
-The project documentation, presentation materials, deployment configuration, and system evaluation activities were consolidated to support the final Smart Krishi project submission.
 
 ##  Environment Variables Reference
 
