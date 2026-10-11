@@ -436,6 +436,82 @@ Member 1 owned the entry point of the application, responsible for secure authen
 * Multi-plot land registry supporting acreages, soil classifications, and irrigation types.
 * Interactive farmer dashboard displaying weather alerts, land holdings, and quick links.
 
+* ## Week 7
+
+### 3. Member 3: Live Meteorological Telemetry & Precision Irrigation Advisory
+
+**Role & Scope of Work**
+Member 3 was responsible for building the real-time weather integration and the evapotranspiration-based irrigation advisory system[cite: 52].
+
+* **Frontend (User Interface & State):** Built the live weather interface (`weather.html`), interactive gauges, and the "Use My Location" GPS workflow[cite: 52].
+* **Backend (API Logic):** Developed `WeatherService.java` and `WeatherCacheConfig.java` to interface directly with WeatherAPI.com's forecast endpoints[cite: 52].
+* **Resilience & Caching:** Implemented a multi-tier caching architecture (Caffeine 10-min fresh, 6-hr stale fallback), rate-limit backoffs, and network timeout circuit breaking to ensure high availability[cite: 52].
+
+**Problems & Challenges Faced**
+1. **Upstream Rate Limiting (HTTP 429):** External weather providers enforce rate quotas which caused failures during high traffic[cite: 52]. Solved by parsing `Retry-After` headers, triggering bounded backoff, and serving 6-hour cached telemetry with transparent UI notices[cite: 52].
+2. **Repeated Network Timeouts:** Server unresponsiveness caused cascading delays across the platform[cite: 52]. Solved by adding a consecutive timeout threshold where 2 timeouts trigger a 20-second circuit breaker[cite: 52].
+3. **Structured HTTP 400 Classification:** WeatherAPI returns HTTP 400 for multiple distinct errors[cite: 52]. Solved by parsing JSON error codes, mapping invalid locations (code 1006) to `ResourceNotFoundException`, and malformed requests to `BadRequestException`[cite: 52].
+
+**What They Completed**
+* Zero-fake meteorological tracking supporting city searches and high-accuracy GPS coordinates[cite: 52].
+* Live evapotranspiration-based irrigation advice (Normal, Heavy, Light, or Pause irrigation)[cite: 52].
+* 14 focused unit tests verifying rate-limiting, stale fallback, and timeout backoff[cite: 52].
+
+---
+
+### 4. Member 4: Smart Fertilizer Recommender & Farm Profit / ROI Economics
+
+**Role & Scope of Work**
+Member 4 built the core agricultural economic engines, translating chemical soil metrics into actionable commercial farming budgets[cite: 53].
+
+* **Frontend (User Interface & State):** Built the interactive fertilizer balancer (`fertilizer.html`) and the pre-sowing farm profit & ROI calculator (`profit-calculator.html`)[cite: 53].
+* **Backend (API Logic):** Developed `FertilizerService.java` and `ProfitCalculatorService.java` to process agronomic inputs and financial parameters[cite: 53].
+* **Agronomic Mathematics:** Coded ICAR soil nutrient balancing formulas and engineered stoichiometric conversions for commercial fertilizer bags[cite: 53].
+
+**Problems & Challenges Faced**
+1. **Nutrient to Commercial Fertilizer Conversion:** Soil tests report elemental N, P, and K, whereas farmers purchase mixed bags like Urea (46% N) and DAP (18:46:0)[cite: 53]. Solved by implementing stoichiometric conversion formulas that calculate primary nutrients while accounting for multi-nutrient fertilizers[cite: 53].
+2. **Soil pH Correction Logic:** Highly acidic (<6.0) or alkaline (>8.0) soils reduce fertilizer uptake[cite: 53]. Solved by adding automated agricultural lime and gypsum recommendations based on pH thresholds[cite: 53].
+3. **Farm Economic Edge Cases:** Zero land area or negative production costs caused division-by-zero errors in the financial engine[cite: 53]. Solved by adding strict input validation rules and implementing dynamic break-even selling price formulas[cite: 53].
+
+**What They Completed**
+* A rule-based fertilizer dose calculator converting nutrient deficits into commercial bag counts with split application schedules[cite: 53].
+* A precision farm budget calculator providing net profit, ROI %, break-even prices, and financial health ratings (EXCELLENT, GOOD, MODERATE, HIGH_RISK)[cite: 53].
+
+---
+
+## Week 8
+
+### 5. Member 5: Nearby APMC Mandi Locator & Statistical Price Prediction Engine
+
+**Role & Scope of Work**
+Member 5 focused on geospatial market discovery and statistical commodity price forecasting[cite: 53].
+
+* **Frontend (User Interface & State):** Built the mandi market rates interface (`market-prices.html`) and the statistical price trend predictor (`price-prediction.html`)[cite: 53].
+* **Backend (API Logic):** Built `MandiService.java`, `MandiLocationRegistry.java`, and `PricePredictionService.java` to process market queries[cite: 53].
+* **Geospatial & Statistical Algorithms:** Implemented the Haversine geodesic distance formula for proximity resolution and rolling moving average algorithms for price trend projections[cite: 53].
+
+**Problems & Challenges Faced**
+1. **Geodesic Distance Performance:** Calculating spherical distances across all Indian market locations risked high latency[cite: 53]. Solved by optimizing the Haversine formula against a memory-resident APMC registry[cite: 53].
+2. **Government API Downtime (AGMARKNET):** The Open Government Data portal occasionally suffers latency or outages[cite: 53]. Solved by engineering a 3-tier fallback architecture: Tier 1 (Live API), Tier 2 (15-minute memory cache), and Tier 3 (Verified Smart Krishi APMC database fallback)[cite: 53].
+3. **Price Forecast Integrity:** Forecasting price trends with insufficient data produces misleading predictions[cite: 53]. Solved by enforcing a strict minimum of 3 historical time-series data points, otherwise returning an honest `INSUFFICIENT_DATA` response[cite: 53].
+
+**What They Completed**
+* A geodesic nearby mandi locator with radius filters (10, 25, 50, 100 km) and turn-by-turn Google Maps navigation[cite: 53].
+* A resilient multi-tier fallback architecture with transparent API status badges[cite: 53].
+* Statistical moving average price prediction engine with confidence scoring and statutory advisory disclaimers[cite: 53, 54].
+
+---
+
+### Summary of Module Distribution
+
+| Module | Team Member Scope | Primary Focus | Key Deliverable |
+| :--- | :--- | :--- | :--- |
+| **1. Farmer & Land Core** | End-to-End | User Authentication, Landholdings, JWT, RBAC | Farmer Dashboard, Profile Registry, Security Filter[cite: 53] |
+| **2. Crop & Calendar Engine** | End-to-End | 8-Parameter Crop Recommendation, Phenology | Agronomic Recommender, Dynamic Growth Calendar[cite: 53] |
+| **3. Weather & Irrigation** | End-to-End | Live WeatherAPI, Evapotranspiration, Caching | Live Weather Telemetry, Multi-Tier Resilient Cache[cite: 53] |
+| **4. Fertilizer & Economics** | End-to-End | ICAR Nutrient Balancer, Pre-Sowing Farm ROI | Commercial Bag Calculator, Farm Financial Engine[cite: 53] |
+| **5. Mandi & Price Predictor** | End-to-End | Haversine Locator, AGMARKNET, Moving Average | Nearby Mandi Discovery, Price Trend Predictor[cite: 53] |
+
 
 ## Week 9
 
