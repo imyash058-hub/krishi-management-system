@@ -862,6 +862,6 @@ Configure the following variables according to your deployment environment.
 
 This project was developed by the Smart Krishi engineering team under the academic guidance of **Er. Ram Babu Buri**, Department of Computer Science / Information Technology.
 
-The platform leverages meteorological data from WeatherAPI.com, agricultural mandi statistics from the Ministry of Agriculture & Farmers Welfare through data.gov.in AGMARKNET, and nutrient recommendation formulas aligned with the Indian Council of Agricultural Research (ICAR).
+The platform leverages meteorological data from WeatherAPI.com, agricultural mandi statistics from the Ministry of Agriculture & Farmers Welfare through data.gov.in AGMARKNET, and nutrient recommendation formulas aligned with the Indian Council of Agricultural Research 
 
 
