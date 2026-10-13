@@ -1,4 +1,4 @@
-# Tasty Bite: Precision Agriculture Platform
+# smart krishi: Precision Agriculture Platform
 ---
 ## week 1
 
