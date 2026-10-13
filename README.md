@@ -867,7 +867,7 @@ Use the following credentials to access the development environment, if these ac
 | 👨‍🌾 Farmer Portal         | `ramesh@smartkrishi.com` | `Farmer@123` |
 | 🛡️ Admin Governance Portal | `admin@smartkrishi.com`  | `Admin@123`  |
 
-
+# website: https://smart-krishi-digital-kishan.netlify.app/
 ##  Academic Declaration & Acknowledgements
 
 This project was developed by the Smart Krishi engineering team under the academic guidance of **Er. Ram Babu Buri**, Department of Computer Science / Information Technology.
