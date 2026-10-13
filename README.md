@@ -1,4 +1,4 @@
-# smart krishi: Precision Agriculture Platform
+# Smart krishi: Precision Agriculture Platform
 ---
 ## week 1
 
