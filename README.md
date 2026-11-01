@@ -786,7 +786,7 @@ During **Week 12**, the Smart Krishi engineering team completed the final system
 | **Deliverable**                | **Description**                                                                                                        | **Resource Link**                                                                               |
 | ------------------------------ | ---------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
 | **📄 Final Project Report**    | Technical Architecture Document, Software Requirements Specification (SRS), and evaluation metrics                     | [View Project Repository](https://github.com/imyash058-hub/krishi-management-system/blob/main/Final_report_smart_krishi_fixed_2.pdf) |
-| **📊 Presentation Deck (PPT)** | 20-slide B.Tech project evaluation presentation covering system design, cloud database, agronomic engines, and testing | [View Project Repository](https://github.com/imyash058-hub/krishi-management-system)            |
+| **📊 Presentation Deck (PPT)** | 20-slide B.Tech project evaluation presentation covering system design, cloud database, agronomic engines, and testing | [View Project Repository](https://github.com/imyash058-hub/krishi-management-system/blob/main/Smart%20Krishi%20Presentation.pdf)            |
 | **🎥 Video Demonstration**     | Walkthrough of farmer onboarding, crop recommendation, live weather, and mandi features                                |  [Watch Video Demonstration (YouTube)](#) \| [Drive Video Link](#) |
 
 ### 🔗 Key Accomplishments & Week 12 Milestones
@@ -812,7 +812,7 @@ Prepared a structured 20-slide presentation covering:
 * **Agronomic & Economic Engines:** Eight-parameter crop recommendation engine and farm production budget and ROI calculations.
 * **Quality Assurance & Testing:** Automated integration testing, rate-limit handling, and circuit-breaker timeout behavior. The project report records 30/30 passing tests.
 
-📊 **Presentation:** [Open Smart Krishi Repository](https://github.com/imyash058-hub/krishi-management-system)
+📊 **Presentation:** [Open Smart Krishi Repository](https://github.com/imyash058-hub/krishi-management-system/blob/main/Smart%20Krishi%20Presentation.pdf)
 
 **3. End-to-End Product Video Demonstration**
 
