@@ -39,7 +39,7 @@ Smart Krishi enforces strict Role-Based Access Control (RBAC) utilizing Spring S
 
 ### SRS PDF
 
-You can access the [Project SRS Click](#)
+You can access the [Project SRS Click](https://github.com/imyash058-hub/krishi-management-system/blob/main/Smart%20Krishi%20SRS%20(1).pdf)
 
 ### Architecture & Core Modules
 
