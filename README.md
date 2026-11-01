@@ -785,7 +785,7 @@ During **Week 12**, the Smart Krishi engineering team completed the final system
 
 | **Deliverable**                | **Description**                                                                                                        | **Resource Link**                                                                               |
 | ------------------------------ | ---------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
-| **📄 Final Project Report**    | Technical Architecture Document, Software Requirements Specification (SRS), and evaluation metrics                     | [View Project Repository](https://github.com/imyash058-hub/krishi-management-system) · `SRS.md` |
+| **📄 Final Project Report**    | Technical Architecture Document, Software Requirements Specification (SRS), and evaluation metrics                     | [View Project Repository](https://github.com/imyash058-hub/krishi-management-system/blob/main/Final_report_smart_krishi_fixed_2.pdf) |
 | **📊 Presentation Deck (PPT)** | 20-slide B.Tech project evaluation presentation covering system design, cloud database, agronomic engines, and testing | [View Project Repository](https://github.com/imyash058-hub/krishi-management-system)            |
 | **🎥 Video Demonstration**     | Walkthrough of farmer onboarding, crop recommendation, live weather, and mandi features                                |  [Watch Video Demonstration (YouTube)](#) \| [Drive Video Link](#) |
 
@@ -800,7 +800,7 @@ Compiled the Software Requirements Specification (SRS) and Technical Architectur
 * **Stateless JWT Authentication:** Role-Based Access Control (RBAC) for `ROLE_FARMER`, `ROLE_ADMIN`, and `ROLE_GUEST`.
 * **Algorithmic & Mathematical Modeling:** Haversine formula for geographical distances, rolling moving-average price predictions, and ICAR-aligned nutrient calculations.
 
-📄 **Project Report:** [Open Smart Krishi Repository](https://github.com/imyash058-hub/krishi-management-system)
+📄 **Project Report:** [Open Smart Krishi Repository](https://github.com/imyash058-hub/krishi-management-system/blob/main/Final_report_smart_krishi_fixed_2.pdf)
 
 **2. Final Evaluation Slide Deck (PPT)**
 
